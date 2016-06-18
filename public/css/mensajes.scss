@@ -1,0 +1,30 @@
+.pContent {
+	background: #DCF9C4;
+	max-width: 50%;
+	border-radius: 4px;
+	padding: 0.5em;
+	border: 1px solid #D6F9BA;
+	box-shadow: 0 0 2px #97B77C;
+	font-size: 0.9em;
+	margin: 0 0 0.5em 0;
+	iframe {
+		width: 100%;
+	}
+	.horarioPub {
+		font-size: 0.9rem;
+		color: #929fa6;
+	}
+
+}
+
+.pContent--Date {
+		font-size: 0.8rem;
+		width: 10%;
+		min-width: 20%;
+		text-align: center;
+		border-radius: 5px;
+		padding: 0.3em;
+		background: #E0F2FB;
+		margin: 0 0 0.5em 0;
+		border: 1px solid #DED7D1;
+}

@@ -1,0 +1,32 @@
+.panel--Iz {
+	.panel--Iz--ShowUsers {
+		width: 100%;
+		background: white;
+		overflow: hidden;
+		padding: 0.5em;
+		border-bottom: 1px solid #dedede;
+		&:last-child {
+			border-bottom: none;
+		}
+		&:hover {
+			background: #E9EAEB;
+		}
+		.users--Iz {
+			width: 20%;
+			float: left;
+			img {
+				width: 80%;
+				border-radius: 50%;
+			}
+		}
+		.users--De {
+			margin: 0 0 0 0.5em;
+			float: left;
+			font-family: 'Roboto Condensed', sans-serif;
+			.title {
+				font-size: 1em;
+				font-weight: 400;
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+  "name": "chatvixnet",
+  "version": "1.0.0",
+  "description": "chat creado en nodejs por edinson",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "edinson cs",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "socket.io": "^1.4.5"
+  }
+}

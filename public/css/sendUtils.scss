@@ -1,0 +1,32 @@
+.sendIcons {
+	background: #C5C4C4;
+	padding: 0.25em + 0.25em 0.5em;
+	display: none;
+	.ul .list {
+		list-style-type: none;
+		display: inline-block;
+		margin: 0 0.5em 0 0;
+		i {
+			font-size: 2em;
+			cursor: pointer;
+			&:active {
+				animation: active 1s;
+			}
+			@keyframes active {
+				50% {
+					transform: scale(1.2);
+				}
+			}
+		}
+		&:first-child {
+			i {
+				color: red;
+			}
+		}
+		&:nth-child(2){
+			i {
+				color: #FF5400;
+			}
+		}
+	}
+}
