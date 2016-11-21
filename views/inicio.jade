@@ -10,6 +10,7 @@ html(lang="en")
     script(src="/socket.io/socket.io.js")
     script(src="../js/web.js")
     script(src="../js/app.js")
+    script(src="../js/home.js")
     
   body
     div.bgPrimary
@@ -25,6 +26,24 @@ html(lang="en")
             input(type="password", name="password", placeholder="Password")
           fieldset.fieldset
             input(type="submit", value="Ingresar")
+        form.formRegister(action="/login")
+          fieldset.fieldset
+            input(type="text", name="username", placeholder="Nickname")
+          fieldset.fieldset
+            input(type="password", name="password", placeholder="Password")
+          fieldset.fieldset
+            input(type="password", name="password", placeholder="Confirmar Password")
+          fieldset.fieldset
+            input(type="file", name="avatar", id="avatar")
+            label(for="avatar", class="isAvatar")
+              | Selecciona tu avatar
+          fieldset.fieldset
+            input(type="submit", value="Ingresar")
+        div.containerLinks
+          a.link.jsNewAccount(href="#")
+            | Crear Cuenta
+          a.link.jsAccessAccount(href="#")
+            | Ya tienes una cuenta?
       
         
 

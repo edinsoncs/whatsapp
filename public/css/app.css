@@ -2736,6 +2736,10 @@ ul {
   box-sizing: border-box;
 }
 
+.jsAccessAccount {
+  display: none;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   background: #D9DBD5;
@@ -3151,24 +3155,28 @@ main .panelVixnet .panel--De .send {
   color: #413f3f;
 }
 
-.panelAccess .formLogin .fieldset {
+.panelAccess .formRegister {
+  display: none;
+}
+
+.panelAccess .formLogin .fieldset, .panelAccess .formRegister .fieldset {
   border: none;
 }
 
-.panelAccess .formLogin .fieldset:last-child {
+.panelAccess .formLogin .fieldset:last-child, .panelAccess .formRegister .fieldset:last-child {
   text-align: center;
 }
 
-.panelAccess .formLogin .fieldset:last-child input[type='submit'] {
+.panelAccess .formLogin .fieldset:last-child input[type='submit'], .panelAccess .formRegister .fieldset:last-child input[type='submit'] {
   background-color: #009688;
   color: white;
   border: none;
-  padding: 0.5em;
+  padding: 0.5em 0.8em;
   border-radius: 3px;
   outline: none;
 }
 
-.panelAccess .formLogin input[type='text'], .panelAccess .formLogin input[type='password'] {
+.panelAccess .formLogin input[type='text'], .panelAccess .formLogin input[type='password'], .panelAccess .formRegister input[type='text'], .panelAccess .formRegister input[type='password'] {
   width: 100%;
   padding: 0.5em;
   outline: none;
@@ -3178,14 +3186,45 @@ main .panelVixnet .panel--De .send {
   transition: all 0.5s linear;
 }
 
-.panelAccess .formLogin input[type='text']:hover, .panelAccess .formLogin input[type='password']:hover {
+.panelAccess .formLogin input[type='text']:hover, .panelAccess .formLogin input[type='password']:hover, .panelAccess .formRegister input[type='text']:hover, .panelAccess .formRegister input[type='password']:hover {
   box-shadow: 0 0 4px #009688;
 }
 
-.panelAccess .formLogin input[type='text']:active, .panelAccess .formLogin input[type='password']:active {
+.panelAccess .formLogin input[type='text']:active, .panelAccess .formLogin input[type='password']:active, .panelAccess .formRegister input[type='text']:active, .panelAccess .formRegister input[type='password']:active {
   box-shadow: 0 2px 0 #009688;
+}
+
+.panelAccess .formLogin input[type='file'], .panelAccess .formRegister input[type='file'] {
+  display: none;
+}
+
+.panelAccess .formLogin .isAvatar, .panelAccess .formRegister .isAvatar {
+  text-align: center;
+  display: block;
+  background-color: white;
+  border: 1px solid #dedede;
+  padding: 0.5em;
+  border-radius: 4px;
+  transition: all .5s linear;
+  color: #686868;
+}
+
+.panelAccess .formLogin .isAvatar:active, .panelAccess .formRegister .isAvatar:active {
+  background-color: #009688;
+  color: white;
 }
 
 .panelAccess:hover {
   box-shadow: 0 0 10px #ede;
+}
+
+.panelAccess .containerLinks {
+  text-align: center;
+  border-top: 1px solid #dedede;
+  padding: 0.5em 0 0 0;
+}
+
+.panelAccess .containerLinks .link {
+  text-decoration: none;
+  color: #2196F3;
 }
