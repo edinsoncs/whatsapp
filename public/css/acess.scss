@@ -1,0 +1,58 @@
+.panelAccess {
+	position: absolute;
+	z-index: 24;
+	left: 35%;
+	top: 0%;
+	margin-top: 8em;
+	width: 30%;
+	background-color: white;
+	padding: 1.5em;
+	border-radius: 4px;
+	box-shadow: 0 2px 2px #dedede;
+	transition: 0.5s linear;
+	.panelAccess__Header {
+		text-align: center;
+		margin-bottom: 1em;
+		.title {
+			font-weight: 400;
+			color: #413f3f;
+		}
+	}
+	.formLogin {
+		.fieldset {
+			border: none;
+			&:last-child {
+				text-align: center;
+				input[type='submit'] {
+					background-color: #009688;
+					color: white;
+					border: none;
+					padding: 0.5em;
+					border-radius: 3px;
+					outline: none;
+				}
+			}
+		}
+		input[type='text'], input[type='password'] {
+			width: 100%;
+			padding: 0.5em;
+			outline: none;
+			border-radius: 4px;
+			border: none;
+			border: 1px solid #dedede;
+			transition: all 0.5s linear;
+			&:hover {
+				box-shadow: 0 0 4px #009688;
+			}
+			&:active {
+				box-shadow: 0 2px 0 #009688;
+			}
+		}
+
+
+	}
+
+	&:hover {
+			box-shadow: 0 0 10px #ede;
+	}
+}

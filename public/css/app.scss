@@ -2086,7 +2086,9 @@
 }
 
 
-
+* {
+  box-sizing: border-box;
+}
 
 body {
 	font-family: 'Open Sans', sans-serif;
@@ -2153,15 +2155,15 @@ main {
 				bottom: 0;
 				left: 0;
 				right: 0;
-				width: 100%;
-				@import "sendUtils"
-				
+				width: 100%;				
 			}
 		}
 	}
 }
 
+@import "sendUtils";
 @import "mensajes";
 @import "publicar";
 @import "users";
 @import "menuMensajes";
+@import "acess";

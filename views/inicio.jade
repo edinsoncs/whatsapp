@@ -1,80 +1,32 @@
 <!DOCTYPE html>
 html(lang="en")
-	head
-		meta(charset="UTF-8")
-		title #{title}
-		link(rel="stylesheet", href="../css/normalize.css")
-		link(rel="stylesheet", href="../css/app.css")
-		script(src="https://code.jquery.com/jquery-1.10.2.js")
-		script(src="http://timeago.yarp.com/jquery.timeago.js")
-		script(src="/socket.io/socket.io.js")
-		script(src="../js/web.js")
-		script(src="../js/app.js")
-		
-	body
-		div.bgPrimary
-		main
-			div.menusShowPanles
-				div.panelGiphy
-					header.headerGiphy
-						h2.title
-							| Envía un gif
-						div.addGallery
-							span.title.jsAddingGif
-								| Agregar
-						form.headerForm.jsFormS
-							fieldset.headerForm--Fieldset
-								input(type="search", name='jsSecondarySearch')
-							fieldset.headerForm--Fieldset
-								input(type="submit", name='jsSecondarySubmit',value='Buscar')
-					section.contentGiphy
-						form.formGiphy
-							input(type="search", name='jsPrimarySearch', placeholder='dancing')
-							input(type="submit", value='Buscar')
-						div.contentGiphy--Figures
-			section.panelVixnet
-				aside.panel--Iz
-					article.panel--Iz--ShowUsers
-						figure.figure.users--Iz
-							img(src="http://www.netnaija.com/avatars/no-photo.jpg", alt="")
-						div.users--De
-							header.users--Header
-								h2.title
-									| Edinson Carranza
-					article.panel--Iz--ShowUsers
-						figure.figure.users--Iz
-							img(src="http://www.netnaija.com/avatars/no-photo.jpg", alt="")
-						div.users--De
-							header.users--Header
-								h2.title
-									| Edinson Carranza
+  head
+    meta(charset="UTF-8")
+    title #{title}
+    link(rel="stylesheet", href="../css/normalize.css")
+    link(rel="stylesheet", href="../css/app.css")
+    script(src="https://code.jquery.com/jquery-1.10.2.js")
+    script(src="http://timeago.yarp.com/jquery.timeago.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="../js/web.js")
+    script(src="../js/app.js")
+    
+  body
+    div.bgPrimary
+    main
+      section.panelAccess
+        header.panelAccess__Header
+          h2.title
+            | Ingresar Whatssap
+        form.formLogin(action="/login")
+          fieldset.fieldset
+            input(type="text", name="username", placeholder="Nickname")
+          fieldset.fieldset
+            input(type="password", name="password", placeholder="Password")
+          fieldset.fieldset
+            input(type="submit", value="Ingresar")
+      
+        
 
-				section.panel--De
-					div.panel--Mensajes
-						article.showHeader
-							header.showHeader--Cont
-								h2.title
-									| Chat Whatssap
-					div.show
-							article.mensajes(id="muestromensaje")
-								//p.description
-									| Hola que tal escribiendo en chat
-					div.send
-						section.sendIcons
-							ul.ul
-								li.list.jsYoutube
-									i(class="fa fa-youtube-play")
-								li.list.jsGiphy
-									i(class="fa fa-gift")
-						form(action="", class="formSendMensaje")
-							div.formLeft
-								i(class="fa fa-smile-o")
-								i(class="fa fa-sort jsShow")
-							div.formCenter
-								input(type="text", value="" placeholder="escribe tu mensaje")
-							div.formRight
-								input(type="submit", value="enviar")
-				
-
-			
-	
+      
+  

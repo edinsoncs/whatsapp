@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <link rel="stylesheet" href="../css/normalize.css"/>
+    <link rel="stylesheet" href="../css/app.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://timeago.yarp.com/jquery.timeago.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/web.js"></script>
+    <script src="../js/app.js"></script>
+  </head>
+  <body>
+    <div class="bgPrimary"></div>
+    <main>
+      <section class="panelAccess">
+        <header class="panelAccess__Header">
+          <h2 class="title">Ingresar Whatssap</h2>
+        </header>
+        <form action="/login" class="formLogin">
+          <fieldset class="fieldset">
+            <input type="text" name="username" placeholder="Nickname"/>
+          </fieldset>
+          <fieldset class="fieldset">
+            <input type="password" name="password" placeholder="Password"/>
+          </fieldset>
+          <fieldset class="fieldset">
+            <input type="submit" value="Ingresar"/>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
