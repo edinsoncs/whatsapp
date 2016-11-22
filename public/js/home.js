@@ -68,5 +68,6 @@ $(document).ready(function(){
 	fieldsRegister(inputRegister, inputPassword, inputOtherPassword, submit);
 
 
+	
 
 });

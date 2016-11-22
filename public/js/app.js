@@ -6,7 +6,7 @@ $(document).ready(function(){
 	var templateVideo = "";
 	var templateHorario = "";
 	var video = "";
-	var socket = io.connect('http://localhost:3000/');
+	var socket = io.connect('http://localhost/');
 	
 
 	function isApiGiphy(){

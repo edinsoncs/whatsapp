@@ -8,10 +8,7 @@ router.get('/', function(req, res, next){
 		seo: 'mis palabras para posicionar'
 	});
 });
-router.get('/:id', function(req, res, next){
-	var nombre = req.params.id;
-	res.send('Por que lees mi code?');
-});
+
 
 
 module.exports = router;
