@@ -2124,9 +2124,10 @@ main {
 		display: flex;
 		justify-content: space-between;
 		.panel--Iz {
-			background: #EEEEEE;
+			background: #fff;
 			width: 30%;
 			height: 100%; 
+      overflow: hidden;
 		}
 		.panel--De {
 			width: 70%;
@@ -2153,6 +2154,16 @@ main {
 					height: 580px;
 					overflow-y: auto;
 				}		
+        .mensajes::-webkit-scrollbar {
+          width: .5em;
+        }
+        .mensajes::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgb(163, 163, 163);
+        }
+        .mensajes::-webkit-scrollbar-thumb {
+          background-color: #009688;
+          border-radius: 4px;
+        }
 			}
 			.send {
 				position: absolute;

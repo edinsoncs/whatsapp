@@ -16,7 +16,6 @@ $(document).ready(function(){
 
 			$(".panelGiphy").fadeIn();
 
-
 			$(document).keyup(function(e){
 				if(e.keyCode == 27) {
 					$(".panelGiphy").fadeOut();
@@ -27,6 +26,18 @@ $(document).ready(function(){
 	}
 	inShowPanelGiphy();
 
-	
+
+	//Perfil
+	$(".jsHideProfile").click(function(){
+		$(".panel--User--Complet").animate({
+			'margin-left': '-20em'
+		});
+	})
+
+	$(".jsShowProfile").click(function(){
+		$(".panel--User--Complet").animate({
+			'margin-left': '0'
+		});
+	});
 
 });

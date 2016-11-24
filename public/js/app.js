@@ -113,7 +113,6 @@ $(document).ready(function(){
 
 	socket.on('connect', function(data){
 		socket.emit('join', 'hola me conecte');
-
 	});
 
 	
@@ -122,7 +121,7 @@ $(document).ready(function(){
 		console.log(socket.nameUsuario);	
 	});
 
-	
+
 
 	socket.on('broad', function(data){
 		var datos = new Date();
@@ -139,15 +138,13 @@ $(document).ready(function(){
 					"<div class='pContent' style='margin-left:25em;background:white;border:none;box-shadow: 0;'>"+
 							"<p>"+
 								"<span class='horarioPub'>"+
-									'Publicado: ' +
+									'User: ' +
 								"</span>" +
 								"<span>"+
 								mensaje +
 								"</span>"+
 					   		"</p>" +
 					   "</div>";
-
-		 	$(".jsHorario").timeago();
 
 			$("#muestromensaje").append(template);
 
@@ -221,7 +218,7 @@ $(document).ready(function(){
 
 	$(".formSendMensaje").submit(function(e){
 
-
+		e.preventDefault();
 
 	
 		//Mensajes antiguos cambiar configuración:
@@ -238,12 +235,25 @@ $(document).ready(function(){
 
 		socket.emit('mensaje', mensaje);
 
-
-		
-
-		
+		//Save Data Ajax
+		$.ajax({
+			url: '/chat/savemensajes',
+			type: 'post',
+			dataType: 'JSON',
+			contentType: 'application/json',
+			data: JSON.stringify({
+				user: $(".selectUser").text(),
+				fecha: new Date(),
+				message: mensaje
+			}),
+			success: function(data){
+				console.log(data);
+			}
+		})
 
 	});
+
+	$(".jsHorario").timeago();
 
 });
 

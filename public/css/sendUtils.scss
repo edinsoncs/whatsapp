@@ -1,7 +1,17 @@
+.uNone {
+	display: none;
+}
 .inputWarning {
 	border: 1px solid red!important;
 }
-
+.success {
+	background-color: #d66065;
+    color: white;
+    margin: 1em 0 0;
+    border-radius: 30px;
+    font-size: 0.9em;
+    text-shadow: 0 0 2px black;
+}
 
 
 .sendIcons {

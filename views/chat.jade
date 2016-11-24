@@ -1,77 +1,129 @@
 <!DOCTYPE html>
 html(lang="en")
-	head
-		meta(charset="UTF-8")
-		title #{title}
-		link(rel="stylesheet", href="../css/normalize.css")
-		link(rel="stylesheet", href="../css/app.css")
-		script(src="https://code.jquery.com/jquery-1.10.2.js")
-		script(src="http://timeago.yarp.com/jquery.timeago.js")
-		script(src="/socket.io/socket.io.js")
-		script(src="../js/web.js")
-		script(src="../js/app.js")
-		
-	body
-		div.bgPrimary
-		main
-			div.menusShowPanles
-				div.panelGiphy
-					header.headerGiphy
-						h2.title
-							| Envía un gif
-						div.addGallery
-							span.title.jsAddingGif
-								| Agregar
-						form.headerForm.jsFormS
-							fieldset.headerForm--Fieldset
-								input(type="search", name='jsSecondarySearch')
-							fieldset.headerForm--Fieldset
-								input(type="submit", name='jsSecondarySubmit',value='Buscar')
-					section.contentGiphy
-						form.formGiphy
-							input(type="search", name='jsPrimarySearch', placeholder='dancing')
-							input(type="submit", value='Buscar')
-						div.contentGiphy--Figures
-			section.panelVixnet
-				aside.panel--Iz
-					article.panel--Iz--ShowUsers
-						figure.figure.users--Iz
-							img(src="http://www.netnaija.com/avatars/no-photo.jpg", alt="")
-						div.users--De
-							header.users--Header
-								h2.title
-									| Edinson Carranza
-					article.panel--Iz--ShowUsers
-						figure.figure.users--Iz
-							img(src="http://www.netnaija.com/avatars/no-photo.jpg", alt="")
-						div.users--De
-							header.users--Header
-								h2.title
-									| Edinson Carranza
+  head
+    meta(charset="UTF-8")
+    title #{title}
+    
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto")
 
-				section.panel--De
-					div.panel--Mensajes
-						article.showHeader
-							header.showHeader--Cont
-								h2.title
-									| Chat Whatssap
-					div.show
-							article.mensajes(id="muestromensaje")
-								//p.description
-									| Hola que tal escribiendo en chat
-					div.send
-						section.sendIcons
-							ul.ul
-								li.list.jsYoutube
-									i(class="fa fa-youtube-play")
-								li.list.jsGiphy
-									i(class="fa fa-gift")
-						form(action="", class="formSendMensaje")
-							div.formLeft
-								i(class="fa fa-smile-o")
-								i(class="fa fa-sort jsShow")
-							div.formCenter
-								input(type="text", value="" placeholder="escribe tu mensaje")
-							div.formRight
-								input(type="submit", value="enviar")
-				
+    link(rel="stylesheet", href="../css/normalize.css")
+    link(rel="stylesheet", href="../css/app.css")
+
+    script(src="https://code.jquery.com/jquery-1.10.2.js")
+    script(src="http://timeago.yarp.com/jquery.timeago.js")
+    script(src="/socket.io/socket.io.js")
+    
+    script(src="../js/web.js")
+    script(src="../js/app.js")
+    
+  body
+    div.bgPrimary
+    main
+      div.menusShowPanles
+        div.panelGiphy
+          header.headerGiphy
+            h2.title
+              | Envía un gif
+            div.addGallery
+              span.title.jsAddingGif
+                | Agregar
+            form.headerForm.jsFormS
+              fieldset.headerForm--Fieldset
+                input(type="search", name='jsSecondarySearch')
+              fieldset.headerForm--Fieldset
+                input(type="submit", name='jsSecondarySubmit',value='Buscar')
+          section.contentGiphy
+            form.formGiphy
+              input(type="search", name='jsPrimarySearch', placeholder='dancing')
+              input(type="submit", value='Buscar')
+            div.contentGiphy--Figures
+      section.panelVixnet
+        aside.panel--Iz
+         div.panel--User--Complet
+          header.complet--Header
+            h2.title.jsHideProfile
+              i.fa.fa-angle-left
+              | Perfil y Estado
+          figure.complet--Figure
+            img(src="http://i39.tinypic.com/33jobuq.jpg", alt="")
+            div.complet--Figure--Change
+              form(action="")
+                label(for="photo")
+                  i.fa.fa-camera
+                  | Cambiar Foto
+                input.uNone#photo(type="file")
+          div.complet--Name
+            span.name
+              | #{data.username}
+          div.complet--Description
+            p.description
+              "No tienes ningun estado"
+         header.panel--User
+          figure.panel--User--Figure.jsShowProfile
+            img(src="http://i39.tinypic.com/33jobuq.jpg", alt="")
+          div.panel--User--Menu
+            span.name
+              | #{data.username}
+         each u in users
+          if u.username == data.username
+            //article.panel--Iz--ShowUsers.selectUser
+              figure.figure.users--Iz
+                img(src="http://www.netnaija.com/avatars/no-photo.jpg", alt="")
+              div.users--De
+                header.users--Header
+                  h2.title
+                    | #{u.username}
+          else
+            article.panel--Iz--ShowUsers
+              figure.figure.users--Iz
+                img(src="http://www.netnaija.com/avatars/no-photo.jpg", alt="")
+              div.users--De
+                header.users--Header
+                  h2.title
+                    | #{u.username}
+         
+
+        section.panel--De
+          div.panel--Mensajes
+            article.showHeader
+              header.showHeader--Cont
+                h2.title
+                  | Chat Whatssap
+          div.show
+              article.mensajes(id="muestromensaje")
+                if mensajes
+                  each m in mensajes
+                   if m.user == data.username
+                    .pContent--Date
+                      time.jsHorario(datetime='#{m.fecha}')
+                    .pContent
+                      p
+                        span.horarioPub #{m.user}: 
+                        span #{m.message}
+                   else
+                    .pContent--Date(style="margin-left:28em;")
+                      time.jsHorario(datetime='#{m.fecha}')
+                    .pContent(style="margin-left:25em;background:white;border:none;box-shadow: 0;")
+                      p
+                        span.horarioPub #{m.user}: 
+                        span #{m.message}
+
+
+                //p.description
+                  | Hola que tal escribiendo en chat
+          div.send
+            section.sendIcons
+              ul.ul
+                li.list.jsYoutube
+                  i(class="fa fa-youtube-play")
+                li.list.jsGiphy
+                  i(class="fa fa-gift")
+            form(action="", class="formSendMensaje")
+              div.formLeft
+                i(class="fa fa-smile-o")
+                i(class="fa fa-sort jsShow")
+              div.formCenter
+                input(type="text", value="" placeholder="escribe tu mensaje")
+              div.formRight
+                input(type="submit", value="enviar")
+        

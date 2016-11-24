@@ -21,9 +21,9 @@ html(lang="en")
             | Ingresar Whatssap
           if messages
             p.success
-              | hola
+              | #{messages.user}
 
-        form.formLogin(action="/login")
+        form.formLogin(action="/login", method="post")
           fieldset.fieldset
             input(type="text", name="username", placeholder="Nickname")
           fieldset.fieldset

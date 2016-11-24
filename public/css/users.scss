@@ -1,4 +1,97 @@
 .panel--Iz {
+	position: relative;
+	.panel--User--Complet {
+		background-color: #efedec;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		margin-left: -20em;
+		.complet--Header {
+			height: 80px;
+			background-color: #00bfa5;
+			border-top-left-radius: 4px;
+			.title {
+				color: white;
+				font-weight: 400;
+				padding: 23px 10px;
+				font-size: 1.3em;
+				cursor: pointer;
+				font-family: 'Roboto', sans-serif;
+
+				i {
+					margin: 0 0.5em 0 0;
+				}
+			}
+		}
+		.complet--Figure {
+			text-align: center;
+			padding: 20px 0;
+			margin: 20px;
+			background-color: white;
+			border: 1px solid #dfdfdf;
+			position: relative;
+			img {
+				width: 200px;
+				height: 210px;
+				border-radius: 50%;
+				
+			}
+			&:hover  .complet--Figure--Change {
+					display: block;
+			}
+			.complet--Figure--Change {
+				position: absolute;
+				background-color: rgba(0, 0, 0, 0.39);
+				width: 200px;
+				height: 210px;
+				top: 8%;
+				left: 11%;
+				border-radius: 50%;
+				display: none;
+				form label {
+					color: white;
+					display: block;
+					margin-top: 5.5em;
+						i {
+							display: block;
+						}
+				}
+			}
+		}
+		.complet--Name {
+			padding: 5px 20px;
+			background-color: #fff;
+			margin: 0 20px;
+			border: 1px solid #dfdfdf;
+			.name {
+				color: #5d5a5a;
+				text-transform: capitalize;
+				font-weight: 400;
+			}
+		}
+		.complet--Description {
+			padding: 10px 20px;
+			background-color: #fff;
+			margin: 10px 20px;
+			border: 1px solid #dfdfdf;
+			
+			font-size: .9rem;
+			text-align: center;
+			p.description {
+				color: #727272;
+				font-style: italic;
+			}
+		}
+	}
+	.selectUser {
+		box-shadow: inset 0 0 46px #d5d5d5;
+		.users--Iz img {
+			border: 2px solid #fff;
+		}
+	}
 	.panel--Iz--ShowUsers {
 		width: 100%;
 		background: white;
@@ -26,6 +119,32 @@
 			.title {
 				font-size: 1em;
 				font-weight: 400;
+			}
+		}
+	}
+	
+	.panel--User {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px;
+		background-color: #eee;
+		.panel--User--Figure {
+			img {
+				width: 50px;
+				border-radius: 50%;
+				display: block;
+				border: 2px solid white;
+				cursor: pointer;
+			}
+		}
+		.panel--User--Menu {
+			.name {
+				color: #525151;
+				font-weight: 700;
+				font-size: 0.9rem;
+				text-transform: capitalize;
+
 			}
 		}
 	}
