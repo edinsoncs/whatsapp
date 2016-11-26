@@ -10,7 +10,7 @@
 		width: 100%;
 		margin-left: -20em;
 		.complet--Header {
-			height: 80px;
+			height: 74px;
 			background-color: #00bfa5;
 			border-top-left-radius: 4px;
 			.title {
@@ -62,7 +62,7 @@
 			}
 		}
 		.complet--Name {
-			padding: 5px 20px;
+			padding: 8px 20px;
 			background-color: #fff;
 			margin: 0 20px;
 			border: 1px solid #dfdfdf;
@@ -70,6 +70,7 @@
 				color: #5d5a5a;
 				text-transform: capitalize;
 				font-weight: 400;
+				font-size: 0.9rem;
 			}
 		}
 		.complet--Description {
@@ -77,12 +78,40 @@
 			background-color: #fff;
 			margin: 10px 20px;
 			border: 1px solid #dfdfdf;
-			
 			font-size: .9rem;
 			text-align: center;
+			position: relative;
+			.headerStatus {
+				text-align: left;
+				position: absolute;
+				left: 0;
+				top: 0;
+				padding: .5em 1em;
+				width: 100%;
+				border-bottom: 1px solid #dedede;
+				.title {
+					margin: 0;
+					font-size: 0.9rem;
+					font-weight: 400;
+					color: #7c8b92;
+				}
+			}
+			.editStatus {
+				position: absolute;
+				right: 0;
+				top: 53%;
+				margin-right: 1em;
+				i {
+					font-size: 1.5em;
+					color: #93999c;
+					cursor: pointer;
+				}
+			}
 			p.description {
 				color: #727272;
 				font-style: italic;
+				margin: 2.5em 0 0 0;
+				font-size: .8rem;
 			}
 		}
 	}
@@ -144,7 +173,7 @@
 				font-weight: 700;
 				font-size: 0.9rem;
 				text-transform: capitalize;
-
+				
 			}
 		}
 	}

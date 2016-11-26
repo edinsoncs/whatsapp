@@ -45,22 +45,46 @@ html(lang="en")
               i.fa.fa-angle-left
               | Perfil y Estado
           figure.complet--Figure
-            img(src="http://i39.tinypic.com/33jobuq.jpg", alt="")
+            if data.avatar
+              img.isAvatarImg(src="/avatars/#{data.avatar}", alt="#{data.username}")
+            else
+              img.isAvatarImg(src="http://i39.tinypic.com/33jobuq.jpg", alt="")
             div.complet--Figure--Change
-              form(action="")
+              form.isFormImage(action="/chat/savephoto", method="post", enctype="multipart/form-data")
                 label(for="photo")
                   i.fa.fa-camera
                   | Cambiar Foto
-                input.uNone#photo(type="file")
+                input.uNone#photo(type="file", name="avatar")
           div.complet--Name
             span.name
               | #{data.username}
           div.complet--Description
-            p.description
-              "No tienes ningun estado"
+            header.headerStatus
+              h2.title
+                | Estado
+            div.editStatus
+              i.fa.fa-pencil.jsEditStatus
+
+            if data.status
+              p.description
+                | #{data.status}
+            else
+              p.description
+                "No tienes ningun estado"
+            form.editStatusForm.uNone(action="/chat/savestatus", method="post")
+              fieldset.fieldset
+                span.cant.jsCant
+                  | 0
+              label.islabel(for="submit")
+                i.fa.fa-check
+              textarea(name="mensaje", cols="20", rows="3", placeholder="Como te sientes hoy?", maxlength="60")
+              input#submit(type="submit")
          header.panel--User
           figure.panel--User--Figure.jsShowProfile
-            img(src="http://i39.tinypic.com/33jobuq.jpg", alt="")
+            if data.avatar
+              img(src="/avatars/#{data.avatar}", alt="#{data.username}")
+            else
+              img(src="http://i39.tinypic.com/33jobuq.jpg", alt="#{data.username}")
           div.panel--User--Menu
             span.name
               | #{data.username}
@@ -76,7 +100,10 @@ html(lang="en")
           else
             article.panel--Iz--ShowUsers
               figure.figure.users--Iz
-                img(src="http://www.netnaija.com/avatars/no-photo.jpg", alt="")
+                if u.avatar
+                  img(src="/avatars/#{u.avatar}", alt="#{u.username}")
+                else
+                  img(src="http://www.netnaija.com/avatars/no-photo.jpg", alt="#{u.username}")
               div.users--De
                 header.users--Header
                   h2.title

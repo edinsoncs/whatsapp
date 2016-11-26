@@ -1,11 +1,13 @@
 .uNone {
-	display: none;
+    display: none;
 }
+
 .inputWarning {
-	border: 1px solid red!important;
+    border: 1px solid red!important;
 }
+
 .success {
-	background-color: #d66065;
+    background-color: #d66065;
     color: white;
     margin: 1em 0 0;
     border-radius: 30px;
@@ -13,36 +15,87 @@
     text-shadow: 0 0 2px black;
 }
 
+.saveButton {
+    position: absolute;
+    top: 43%;
+    padding: 0.5em 1em;
+    left: 15%;
+    background-color: rgba(0, 0, 0, 0.6);
+    input {
+        color: #00e676;
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+}
+
+.editStatusForm {
+    margin: 3em 0 0 0;
+    position: relative;
+    .fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        right: -5%;
+        top: -19%;
+        .cant {
+        	font-size: 1em;
+        	color: #cccccc;
+        }
+    }
+    .islabel {
+    	position: absolute;
+        right: -5%;
+        top: 25%;
+        display: none;
+        cursor: pointer;
+        i {
+        	color: #93999c;
+        	font-size: 1.5em;
+        }
+    }
+    textarea {
+        border: none;
+        border-bottom: 3px solid #00BFA5;
+        outline: none;
+        resize: none;
+        color: #a5a2a2;
+    }
+    input[type="submit"]{
+    	display: none;
+    }
+}
 
 .sendIcons {
-	background: #C5C4C4;
-	padding: 0.25em + 0.25em 0.5em;
-	display: none;
-	.ul .list {
-		list-style-type: none;
-		display: inline-block;
-		margin: 0 0.5em 0 0;
-		i {
-			font-size: 2em;
-			cursor: pointer;
-			&:active {
-				animation: active 1s;
-			}
-			@keyframes active {
-				50% {
-					transform: scale(1.2);
-				}
-			}
-		}
-		&:first-child {
-			i {
-				color: red;
-			}
-		}
-		&:nth-child(2){
-			i {
-				color: #FF5400;
-			}
-		}
-	}
+    background: #C5C4C4;
+    padding: 0.25em + 0.25em 0.5em;
+    display: none;
+    .ul .list {
+        list-style-type: none;
+        display: inline-block;
+        margin: 0 0.5em 0 0;
+        i {
+            font-size: 2em;
+            cursor: pointer;
+            &:active {
+                animation: active 1s;
+            }
+            @keyframes active {
+                50% {
+                    transform: scale(1.2);
+                }
+            }
+        }
+        &:first-child {
+            i {
+                color: red;
+            }
+        }
+        &:nth-child(2) {
+            i {
+                color: #FF5400;
+            }
+        }
+    }
 }
