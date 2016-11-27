@@ -1,99 +1,110 @@
-$(document).ready(function(){
-	var inputSearchGiphy = '';
-	var txtarea = 0;
-	function inDeleteMessages() {
+$(document).ready(function() {
+    var inputSearchGiphy = '';
+    var txtarea = 0;
 
-			$(".formSendMensaje").keypress(function(e){
-				if(e.which == 13) {
-					setTimeout(function(){
-						$(".formSendMensaje input[type='text']").val('').show('slow');
-					}, 150);
-				}
-			});
-	}
-	inDeleteMessages();
-	function inShowPanelGiphy() {
-		$(".jsGiphy").click(function(){
+    function inDeleteMessages() {
 
-			$(".panelGiphy").fadeIn();
+        $(".formSendMensaje").keypress(function(e) {
+            if (e.which == 13) {
+                setTimeout(function() {
+                    $(".formSendMensaje input[type='text']").val('').show('slow');
+                }, 150);
+            }
+        });
+    }
+    inDeleteMessages();
 
-			$(document).keyup(function(e){
-				if(e.keyCode == 27) {
-					$(".panelGiphy").fadeOut();
-				}
-			});
+    function inShowPanelGiphy() {
+        $(".jsGiphy").click(function() {
 
-			if($(".containerviewIMG")) {
-				$(".containerviewIMG").remove();
-			}
-		});
+            $(".panelGiphy").fadeIn();
 
-	}
-	inShowPanelGiphy();
+            $(document).keyup(function(e) {
+                if (e.keyCode == 27) {
+                    $(".panelGiphy").fadeOut();
+                }
+            });
 
+            if ($(".containerviewIMG")) {
+                $(".containerviewIMG").remove();
+            }
 
-	//Perfil
-	$(".jsHideProfile").click(function(){
-		$(".panel--User--Complet").animate({
-			'margin-left': '-20em'
-		});
-	})
+            //Remove select items gallery
+            removeItemsGallery();
 
-	$(".jsShowProfile").click(function(){
-		$(".panel--User--Complet").animate({
-			'margin-left': '0'
-		});
-	});
+        });
 
-	function viewIMG(input) {
-		if(input.files && input.files[0]){
-			var leer = new FileReader();
-
-			leer.onload = function(e){
-				$(".isAvatarImg").attr('src', e.target.result);
-			}
-
-			leer.readAsDataURL(input.files[0]);
-
-			viewBtnSave();
-		}
-	}
+    }
+    inShowPanelGiphy();
 
 
-	$("#photo").change(function(){
-		viewIMG(this);
-	});
+    //Perfil
+    $(".jsHideProfile").click(function() {
+        $(".panel--User--Complet").animate({
+            'margin-left': '-20em'
+        });
+    })
 
-	function viewBtnSave(){
-		$("label[for='photo']").hide();
-		$(".isFormImage").append('<div class="saveButton"><input class="selectConfirm" type="submit" value="CONFIRMAR"/></div>')
-	}
+    $(".jsShowProfile").click(function() {
+        $(".panel--User--Complet").animate({
+            'margin-left': '0'
+        });
+    });
 
-	//Edit Status
-	$(".jsEditStatus").click(function(){
-		$(".complet--Description .description").hide();
-		$(".editStatusForm").show('fast');
+    function viewIMG(input) {
+        if (input.files && input.files[0]) {
+            var leer = new FileReader();
 
-		textarea($(".editStatusForm textarea"));
-	});
+            leer.onload = function(e) {
+                $(".isAvatarImg").attr('src', e.target.result);
+            }
 
-	function textarea(txt){
-		$(txt).keyup(function(){
-			var isL = $(txt).val();
-			if(isL.length < 61){
-				var formula = isL.length - 60;
-				$(".jsCant").text(formula);
-				$(".jsEditStatus").hide();
-				$(".islabel").show('fast');
-			} else {
-				return true;
-			}
+            leer.readAsDataURL(input.files[0]);
 
-			txtarea = txtarea + 1;
-		});
-	}
-	
+            viewBtnSave();
+        }
+    }
 
 
+    $("#photo").change(function() {
+        viewIMG(this);
+    });
+
+    function viewBtnSave() {
+        $("label[for='photo']").hide();
+        $(".isFormImage").append('<div class="saveButton"><input class="selectConfirm" type="submit" value="CONFIRMAR"/></div>')
+    }
+
+    //Edit Status
+    $(".jsEditStatus").click(function() {
+        $(".complet--Description .description").hide();
+        $(".editStatusForm").show('fast');
+
+        textarea($(".editStatusForm textarea"));
+    });
+
+    function textarea(txt) {
+        $(txt).keyup(function() {
+            var isL = $(txt).val();
+            if (isL.length < 61) {
+                var formula = isL.length - 60;
+                $(".jsCant").text(formula);
+                $(".jsEditStatus").hide();
+                $(".islabel").show('fast');
+            } else {
+                return true;
+            }
+
+            txtarea = txtarea + 1;
+        });
+    }
+
+
+    //Call remove items gallery
+    function removeItemsGallery() {
+        $(".iconCont").css('display', 'none');
+        //Clean arr
+        imgArr = [];
+    }
 
 });
