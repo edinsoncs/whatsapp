@@ -228,16 +228,21 @@ $(document).ready(function(){
 		 	$(".jsHorario").timeago();
 
 			$("#muestromensaje").append(template);
+
+			galleryFn();
+			closeGalleryFn();
 		}
 
 		function imgGallery(){
 
 			if($(".containerviewIMG").length) {
 
+
 				return "<figure class='isGalleryContainer'>" +
 							"<img class='isGalleryImg' src='img/isgallery.png' alt='' /> " +
 						"</figure>" +
 						galleryComplet();
+			
 			} else {
 				return '';
 			}
@@ -248,11 +253,14 @@ $(document).ready(function(){
 		  var templateview = '';
 		  var imgcant = '';
 			for(var i = 0; i < imgArr.length; i++) {
-				imgcant += "<img src='"+imgArr[i]+"' alt='' />";
+				imgcant += "<li class='isMyList'><img src='"+imgArr[i]+"' alt='' /></li>";
 			}
 			templateview = "<div class='completViewGallery'>"+
+								"<div class='closeItemGallery'><i class='fa fa-times'></i></div>"+
 								"<div class='completViewGallery--Container'>"+
-									imgcant+
+									"<ul class='isMyUl'>"+
+										imgcant+
+									"</ul>"
 								"</div>"+
 							"</div>";
 			return templateview;
@@ -305,6 +313,23 @@ $(document).ready(function(){
 		console.log(img);
 
 	});
+
+	//View Gallery
+	function galleryFn(){
+
+		$(".pContent .isGalleryContainer img").click(function(){
+			var t = $(this).parent().siblings('.completViewGallery');
+			$(t).show('fast');
+		});
+	}
+
+	//Close Gallery
+	function closeGalleryFn(){
+		$(".closeItemGallery i").click(function(){
+			var b = $(this).parent().parent()
+			$(b).hide('fast');
+		});
+	}
 
 	$(".jsHorario").timeago();
 
