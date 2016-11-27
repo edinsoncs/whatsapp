@@ -2087,7 +2087,7 @@
 
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box!important;
 }
 
 .jsAccessAccount {
@@ -2180,6 +2180,6 @@ main {
 @import "mensajes";
 @import "publicar";
 @import "users";
-@import "menuMensajes";
+@import "menumensajes";
 @import "acess";
 @import "otherresponsive";

@@ -6,6 +6,8 @@ $(document).ready(function(){
 	var templateVideo = "";
 	var templateHorario = "";
 	var video = "";
+	var img = [];
+	var imgArr = [];
 	var socket = io.connect('http://localhost/');
 	
 
@@ -25,6 +27,7 @@ $(document).ready(function(){
 			$.getJSON(API+SEARCH+SEARCHING+KEY, giphy, false);
 			function giphy(data){
 				var dataIMG;
+
 				for(var i = 0; i < data.data.length; i++){
 					dataIMG = data.data[i].images.downsized.url;
 					themeGif = "<figure class='figureGiphy'>"+
@@ -40,6 +43,10 @@ $(document).ready(function(){
 						$(".figureGiphy").click(function(e){
 							var $img = $(this).find('img').attr('src');
 							var $a = $(this).find('.iconCont').css('display','block');
+							
+							imgArr.push($img);
+							img.push($img);
+
 							if($($a).is(':visible')){
 								//alert('hip hop!!!');
 							}
@@ -49,6 +56,27 @@ $(document).ready(function(){
 
 				}
 				itemSelect();
+
+				function addingIMG(){
+					$(".jsAddingGif").click(function(){
+						$(".panelGiphy, .sendIcons").hide();
+
+						var addingview = '';
+						var imgcant = '';
+						for(var i = 0; i < imgArr.length; i++) {
+							imgcant += '<article class="articlIMG"><img src="'+imgArr[i]+'" /></article>';
+						}
+
+						addingview = "<div class='containerviewIMG'>" +
+											imgcant +
+									"</div>";
+						$(".sendIcons").before(addingview);
+					
+					});
+				}
+				addingIMG();
+
+
 			}
 
 		});
@@ -194,6 +222,7 @@ $(document).ready(function(){
 								mensaje +
 								"</span>"+
 					   		"</p>" +
+					   			imgGallery() +
 					   "</div>";
 
 		 	$(".jsHorario").timeago();
@@ -201,15 +230,37 @@ $(document).ready(function(){
 			$("#muestromensaje").append(template);
 		}
 
-		
+		function imgGallery(){
+
+			if($(".containerviewIMG").length) {
+
+				return "<figure class='isGalleryContainer'>" +
+							"<img class='isGalleryImg' src='img/isgallery.png' alt='' /> " +
+						"</figure>" +
+						galleryComplet();
+			} else {
+				return '';
+			}
+		}
 
 	
-		console.log(data);
+		function galleryComplet() {
+		  var templateview = '';
+		  var imgcant = '';
+			for(var i = 0; i < imgArr.length; i++) {
+				imgcant += "<img src='"+imgArr[i]+"' alt='' />";
+			}
+			templateview = "<div class='completViewGallery'>"+
+								"<div class='completViewGallery--Container'>"+
+									imgcant+
+								"</div>"+
+							"</div>";
+			return templateview;
+		}
+
 
 
 		//Animacion en nuestro mensaje publicado:
-
-		
 
 		$("#muestromensaje").scrollTop($("#muestromensaje")[0].scrollHeight).show('slow');		
 
@@ -236,7 +287,7 @@ $(document).ready(function(){
 		socket.emit('mensaje', mensaje);
 
 		//Save Data Ajax
-		$.ajax({
+		/*$.ajax({
 			url: '/chat/savemensajes',
 			type: 'post',
 			dataType: 'JSON',
@@ -249,11 +300,15 @@ $(document).ready(function(){
 			success: function(data){
 				console.log(data);
 			}
-		})
+		}) */
+
+		console.log(img);
 
 	});
 
 	$(".jsHorario").timeago();
+
+	
 
 });
 
@@ -273,3 +328,4 @@ jQuery.timeago.settings.strings = {
 			   year: "Hace un año atrás",
 			   years: "Hace %d años atrás"
 };
+

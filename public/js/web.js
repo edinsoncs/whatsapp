@@ -22,6 +22,10 @@ $(document).ready(function(){
 					$(".panelGiphy").fadeOut();
 				}
 			});
+
+			if($(".containerviewIMG")) {
+				$(".containerviewIMG").remove();
+			}
 		});
 
 	}

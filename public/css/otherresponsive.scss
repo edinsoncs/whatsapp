@@ -6,4 +6,14 @@
 	main .show .mensajes {
 		height: 485px!important;
 	}
+	.menusShowPanles {
+		width: 48%;
+		left: 22%;
+		.panelGiphy .contentGiphy {
+			height: 237px;
+		}
+		.panelGiphy .contentGiphy .formGiphy {
+			top: 30%;
+		}
+	}
 }
