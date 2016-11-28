@@ -2152,7 +2152,7 @@ main {
 				margin: 0 auto;	
 				.mensajes {
 					height: 580px;
-					overflow-y: auto;
+					overflow-y: auto!important;
 				}		
         .mensajes::-webkit-scrollbar {
           width: .5em;

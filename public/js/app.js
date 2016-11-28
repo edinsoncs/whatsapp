@@ -1,5 +1,6 @@
 //GLOBALS
 var imgArr = [];
+var videoID = '';
 
 $(document).ready(function() {
 
@@ -90,9 +91,9 @@ $(document).ready(function() {
 
                     $(".contentGiphy--Figures").append(themeGif);
                 }
-				itemSelect();
+                itemSelect();
             }
-            
+
         });
 
 
@@ -120,11 +121,19 @@ $(document).ready(function() {
             var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             var match = video.match(regExp);
 
+            //Adding id in var video
+            videoID = match[2];
+
             //console.log(match[2]);
+            templateVideo = "<iframe frameborder='0' width='130' height='100px' src='//www.youtube.com/embed/" + match[2] + "'></iframe>"
 
-            templateVideo = "<iframe frameborder='0' width='350px' height='250px' src='//www.youtube.com/embed/" + match[2] + "'></iframe>"
+            //Preview Video
+            $(".send .sendIcons").before('<div class="previewYT">'+templateVideo+'</div>');
 
-            $(".formSendMensaje input[type='text']").val(templateVideo);
+
+            $(".formSendMensaje").append("<input type='hidden' value='"+match[2]+"'  />");
+
+            $(".formSendMensaje input[type='text']").attr('placeholder', 'Descripcción del video');
         });
 
     }
@@ -139,7 +148,7 @@ $(document).ready(function() {
 
 
     socket.on('mensaje', function(data) {
-        console.log(socket.nameUsuario);
+        //console.log(socket.nameUsuario);
     });
 
 
@@ -150,6 +159,9 @@ $(document).ready(function() {
 
         var mensaje = data.mensaje;
         var horario = data.hora;
+        var imgGif = data.img;
+        var videoYT = data.video;
+
         //var leyendome = data.style;
         if (data.style) {
             template = "<div class='pContent--Date' style='margin-left:28em;'>" +
@@ -165,9 +177,17 @@ $(document).ready(function() {
                 mensaje +
                 "</span>" +
                 "</p>" +
+               imgGalleryOther() +
+               videoIDOther() +
                 "</div>";
 
             $("#muestromensaje").append(template);
+
+            galleryFn();
+            closeGalleryFn();
+
+            //remove Preview Fn
+            closePreview();
 
             function notify() {
                 //Activar permisos de notificacion
@@ -215,6 +235,7 @@ $(document).ready(function() {
                 "</span>" +
                 "</p>" +
                 imgGallery() +
+                videoShow() +
                 "</div>";
 
             $(".jsHorario").timeago();
@@ -240,16 +261,29 @@ $(document).ready(function() {
                     galleryComplet();
 
             } else {
-                return '';
+                 return '';
             }
         }
 
+        function imgGalleryOther() {
+        	console.log(imgGif.length);
+        	
+        	if(imgGif.length > 0) {
+        		return "<figure class='isGalleryContainer'>" +
+                    		"<img class='isGalleryImg' src='img/isgallery.png' alt='' /> " +
+                   		 "</figure>" + 
+                   		 galleryOtherUser();
+        	} else {
+        		return '';
+        	}
+
+        }
 
         function galleryComplet() {
             var templateview = '';
             var imgcant = '';
             for (var i = 0; i < imgArr.length; i++) {
-                imgcant += "<li class='isMyList'><img src='" + imgArr[i] + "' alt='' /></li>";
+                imgcant += "<li class='isMyList'><img src='" + imgArr[i] + "'  /></li>";
             }
             templateview = "<div class='completViewGallery'>" +
                 "<div class='closeItemGallery'><i class='fa fa-times'></i></div>" +
@@ -260,6 +294,39 @@ $(document).ready(function() {
             "</div>" +
             "</div>";
             return templateview;
+        }
+
+        function galleryOtherUser(){
+        	var imgcant = '';
+        	for(var i = 0; i < imgGif.length; i++){
+        		imgcant += "<li class='isMyList'> <img src='"+imgGif[i]+"'>  </li>"
+        	}
+        	return "<div class='completViewGallery'>" +
+                "<div class='closeItemGallery'><i class='fa fa-times'></i></div>" +
+                "<div class='completViewGallery--Container'>" +
+                "<ul class='isMyUl'>" +
+                imgcant +
+                "</ul>"
+            "</div>" +
+            "</div>";
+        }
+
+        function videoShow(){
+        	console.log('hola edinson');
+        	console.log(videoID);
+        	if(videoID){
+        		return "<iframe frameborder='0' width='130' height='150px' src='//www.youtube.com/embed/" + videoID + "'></iframe>";
+        	} else {
+        		return ''
+        	}
+        }
+
+        function videoIDOther() {
+        	if(videoYT){
+        		return "<iframe frameborder='0' width='130' height='150px' src='//www.youtube.com/embed/" + videoYT + "'></iframe>";
+        	} else {
+        		return ''
+        	}
         }
 
 
@@ -275,7 +342,6 @@ $(document).ready(function() {
 
         e.preventDefault();
 
-
         //Mensajes antiguos cambiar configuración:
         $(".pContent").css('max-width', '40%').fadeIn('slow');
         //Fin mensajes
@@ -288,26 +354,54 @@ $(document).ready(function() {
         //var find = $(mensaje).find('<script>');
         //console.log(find);
 
-        socket.emit('mensaje', mensaje);
+        socket.emit('mensaje', {
+        	'mensaje': mensaje,
+        	'gifs': imgArr,
+        	'video': videoID
+        });
 
-        //Save Data Ajax
-        /*$.ajax({
-        	url: '/chat/savemensajes',
-        	type: 'post',
-        	dataType: 'JSON',
-        	contentType: 'application/json',
-        	data: JSON.stringify({
-        		user: $(".selectUser").text(),
-        		fecha: new Date(),
-        		message: mensaje
-        	}),
-        	success: function(data){
-        		console.log(data);
-        	}
-        }) */
+        /*if(imgArr) {
+            $.ajax({
+                url: '/chat/savemensajes',
+                type: 'post',
+                dataType: 'JSON',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    user: $(".selectUser").text(),
+                    fecha: new Date(),
+                    message: mensaje,
+                    gallery: imgArr
+                }),
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        } else {
+        	$.ajax({
+                url: '/chat/savemensajes',
+                type: 'post',
+                dataType: 'JSON',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    user: $(".selectUser").text(),
+                    fecha: new Date(),
+                    message: mensaje
+                }),
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        }*/
 
+        setTimeout(function(){
 
+        	 imgArr = [];
 
+        },  50);
+
+        //Remove preview video
+        $(".previewYT").remove();
+        $(".sendIcons").hide();
 
 
     });
@@ -321,6 +415,9 @@ $(document).ready(function() {
         });
     }
 
+    //Other Call
+    galleryFn();
+
     //Close Gallery
     function closeGalleryFn() {
         $(".closeItemGallery i").click(function() {
@@ -329,13 +426,15 @@ $(document).ready(function() {
         });
     }
 
+   	//Other Call
+   	closeGalleryFn();
+
     //Close preview fn
     function closePreview() {
         $(".containerviewIMG").remove();
     }
 
     function itemSelect() {
-    	alert('llamastes');
 
         $(".figureGiphy").click(function(e) {
             var $img = $(this).find('img').attr('src');

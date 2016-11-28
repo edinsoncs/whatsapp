@@ -153,6 +153,17 @@
 
 }
 
+.previewYT {
+    position: absolute;
+    background: #C5C4C4;
+    top: -67%;
+    width: 100%;
+    padding: 1em;
+    iframe {
+        display: block;
+    }
+}
+
 .sendIcons {
     background: #C5C4C4;
     padding: 0.25em + 0.25em 0.5em;

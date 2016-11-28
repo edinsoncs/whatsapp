@@ -130,14 +130,16 @@ io.on('connection', function(client, username){
 
 		client.emit('broad', {
 			hora: new Date(),
-			mensaje: data	
+			mensaje: data.mensaje	
 		});
 
 		//Detectamos los usuarios que nos escriben
 		client.broadcast.emit('broad', {
 			hora: new Date(),
-			mensaje: data,
-			style: 'leyendome'
+			mensaje: data.mensaje,
+			style: 'leyendome',
+			img: data.gifs,
+			video: data.video
 		});
 
 		

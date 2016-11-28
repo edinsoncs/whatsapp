@@ -47,8 +47,8 @@ html(lang="en")
               i.fa.fa-angle-left
               | Perfil y Estado
           figure.complet--Figure
-            if data.avatar
-              img.isAvatarImg(src="/avatars/#{data.avatar}", alt="#{data.username}")
+            if isuser.avatar
+              img.isAvatarImg(src="/avatars/#{isuser.avatar}", alt="#{isuser.username}")
             else
               img.isAvatarImg(src="http://i39.tinypic.com/33jobuq.jpg", alt="")
             div.complet--Figure--Change
@@ -59,7 +59,7 @@ html(lang="en")
                 input.uNone#photo(type="file", name="avatar")
           div.complet--Name
             span.name
-              | #{data.username}
+              | #{isuser.username}
           div.complet--Description
             header.headerStatus
               h2.title
@@ -67,9 +67,9 @@ html(lang="en")
             div.editStatus
               i.fa.fa-pencil.jsEditStatus
 
-            if data.status
+            if isuser.status
               p.description
-                | #{data.status}
+                | #{isuser.status}
             else
               p.description
                 "No tienes ningun estado"
@@ -83,15 +83,15 @@ html(lang="en")
               input#submit(type="submit")
          header.panel--User
           figure.panel--User--Figure.jsShowProfile
-            if data.avatar
-              img(src="/avatars/#{data.avatar}", alt="#{data.username}")
+            if isuser.avatar
+              img(src="/avatars/#{isuser.avatar}", alt="#{isuser.username}")
             else
-              img(src="http://i39.tinypic.com/33jobuq.jpg", alt="#{data.username}")
+              img(src="http://i39.tinypic.com/33jobuq.jpg", alt="#{isuser.username}")
           div.panel--User--Menu
             span.name
-              | #{data.username}
+              | #{isuser.username}
          each u in users
-          if u.username == data.username
+          if u.username == isuser.username
             //article.panel--Iz--ShowUsers.selectUser
               figure.figure.users--Iz
                 img(src="http://www.netnaija.com/avatars/no-photo.jpg", alt="")
@@ -122,13 +122,29 @@ html(lang="en")
               article.mensajes(id="muestromensaje")
                 if mensajes
                   each m in mensajes
-                   if m.user == data.username
+                   if m.user == isuser.username
                     .pContent--Date
                       time.jsHorario(datetime='#{m.fecha}')
                     .pContent
                       p
                         span.horarioPub #{m.user}: 
                         span #{m.message}
+                      if m.gallery
+                        if m.gallery.length > 0
+                          figure.isGalleryContainer
+                            img.isGalleryImg(src="img/isgallery.png", alt="")
+                          div.completViewGallery
+                            div.closeItemGallery
+                              i.fa.fa-times
+                            div.completViewGallery--Container
+                              ul.isMyUl
+                               each g in m.gallery
+                                li.isMyList
+                                  img(src="#{g}")
+                        else
+                          //
+                      else
+                        //
                    else
                     .pContent--Date(style="margin-left:28em;")
                       time.jsHorario(datetime='#{m.fecha}')
@@ -136,6 +152,22 @@ html(lang="en")
                       p
                         span.horarioPub #{m.user}: 
                         span #{m.message}
+                      if m.gallery
+                        if m.gallery.length > 0
+                          figure.isGalleryContainer
+                            img.isGalleryImg(src="img/isgallery.png", alt="")
+                          div.completViewGallery
+                            div.closeItemGallery
+                              i.fa.fa-times
+                            div.completViewGallery--Container
+                              ul.isMyUl
+                               each g in m.gallery
+                                li.isMyList
+                                  img(src="#{g}")
+                        else
+                          //
+                      else
+                        //
 
 
                 //p.description

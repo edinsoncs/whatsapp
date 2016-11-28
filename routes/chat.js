@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 
 			dashboard.find({}, function(e, d){
 				res.render('chat', {
-					data: req.user,
+					isuser: req.user,
 					users: data,
 					mensajes: d
 				});
@@ -38,18 +38,39 @@ router.get('/', function(req, res, next) {
 router.post('/savemensajes', function(req, res, next){
 	var db = req.db;
 	var dashboard = db.get('dashboard');
-	
-	dashboard.insert({
-		'user': req.user.username,
-		'fecha': req.body.fecha,
-		'message': req.body.message
-	}, function(err, doc){
-		if(err){
-			return err;
-		} else {
-			res.json({'success': true});
-		}
-	})
+
+	console.log(req.body);
+
+	if(req.body.gallery) {
+			dashboard.insert({
+			'user': req.user.username,
+			'fecha': req.body.fecha,
+			'message': req.body.message,
+			'gallery': req.body.gallery
+		}, function(err, doc){
+			if(err){
+				return err;
+			} else {
+				res.json({'success': true});
+			}
+		});
+	} else {
+		dashboard.insert({
+			'user': req.user.username,
+			'fecha': req.body.fecha,
+			'message': req.body.message
+		}, function(err, doc){
+			if(err){
+				return err;
+			} else {
+				res.json({'success': true});
+			}
+		});
+	}
+
+	/*
+	 */
+
 });
 
 router.post('/savephoto', formfilesMiddleware, function(req, res, next){
