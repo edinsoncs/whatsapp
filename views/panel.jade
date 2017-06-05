@@ -1,0 +1,199 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='Mouldifi - A fully responsive, HTML5 based admin theme')
+    meta(name='keywords', content='Responsive, HTML5, admin theme, business, professional, Mouldifi, web design, CSS3')
+    title Dotut - Admin
+    // Site favicon
+    link(rel='shortcut icon', type='image/x-icon', href='images/favicon.ico')
+    // /site favicon
+    // Entypo font stylesheet
+    link(href='stylesheet/entypo.css', rel='stylesheet')
+    // /entypo font stylesheet
+    // Font awesome stylesheet
+    link(href='stylesheet/font-awesome.min.css', rel='stylesheet')
+    // /font awesome stylesheet
+    // Bootstrap stylesheet min version
+    link(href='stylesheet/bootstrap.min.css', rel='stylesheet')
+    // /bootstrap stylesheet min version
+    // Mouldifi core stylesheet
+    link(href='stylesheet/mouldifi-core.css', rel='stylesheet')
+    // /mouldifi core stylesheet
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='javascript/html5shiv.min.js')
+      script(src='javascript/respond.min.js')
+  body
+    .page-container
+      .page-sidebar
+        header.site-header
+          .site-logo
+            a(href='/panel')
+              img(src='../img/logo.png', alt='Mouldifi', title='Mouldifi')
+          .sidebar-collapse.hidden-xs
+            a.sidebar-collapse-icon(href='#')
+              i.icon-menu
+          .sidebar-mobile-menu.visible-xs
+            a.mobile-menu-icon(data-target='#side-nav', data-toggle='collapse', href='#')
+              i.icon-menu
+       
+        include inc/menuadmin
+     
+      .main-container
+        
+
+        //.main-header.row
+          .col-sm-6.col-xs-7
+            
+          .col-sm-6.col-xs-5
+            .pull-right
+              ul.user-info.pull-left
+                li.notifications.dropdown
+                  a.dropdown-toggle(data-close-others='true', data-hover='dropdown', data-toggle='dropdown', href='#')
+                    i.icon-attention
+                    span.badge.badge-info 6
+                  ul.dropdown-menu.pull-right
+                    li.first
+                      .small
+                        a.pull-right.danger(href='#') Mark all Read
+                        |  You have 
+                        strong 3
+                        |  new notifications.
+                    li
+                      ul.dropdown-list
+                        li.unread.notification-success
+                          a(href='#')
+                            i.icon-user-add.pull-right
+                            span.block-line.strong New user registered
+                            span.block-line.small 30 seconds ago
+                        li.unread.notification-secondary
+                          a(href='#')
+                            i.icon-heart.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                        li.unread.notification-primary
+                          a(href='#')
+                            i.icon-user.pull-right
+                            span.block-line.strong Privacy settings have been changed
+                            span.block-line.small 2 hours ago
+                        li.notification-danger
+                          a(href='#')
+                            i.icon-cancel-circled.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                        li.notification-info
+                          a(href='#')
+                            i.icon-info.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                        li.notification-warning
+                          a(href='#')
+                            i.icon-rss.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                    li.external-last
+                      a.danger(href='#') View all notifications
+                
+                li.notifications.dropdown
+                  a.dropdown-toggle(data-close-others='true', data-hover='dropdown', data-toggle='dropdown', href='#')
+                    i.icon-mail
+                    span.badge.badge-secondary 12
+                  ul.dropdown-menu.pull-right
+                    li.first
+                      .dropdown-content-header
+                        i.fa.fa-pencil-square-o.pull-right
+                        |  Messages
+                    li
+                      ul.media-list
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/domnic-brown.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Domnic Brown
+                              span.media-annotation.pull-right Tue
+                            span.text-muted Your product sounds interesting I would love to check this ne...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/john-smith.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold John Smith
+                              span.media-annotation.pull-right 12:30
+                            span.text-muted Thank you for posting such a wonderful content. The writing was outstanding...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/stella-johnson.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Stella Johnson
+                              span.media-annotation.pull-right 2 days ago
+                            span.text-muted Thank you for trusting us to be your source for top quality sporting goods...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/alex-dolgove.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Alex Dolgove
+                              span.media-annotation.pull-right 10:45
+                            span.text-muted
+                              | After our Friday meeting I was thinking about our business relationship and how fortunate...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/domnic-brown.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Domnic Brown
+                              span.media-annotation.pull-right 4:00
+                            span.text-muted
+                              | I would like to take this opportunity to thank you for your cooperation in recently completing...
+                    li.external-last
+                      a.danger(href='#') All Messages
+             
+        .main-content
+          .row
+            .contenedor
+              .col-md-8
+                .panel.panel-default
+                  .panel-heading.clearfix
+                    .panel-title
+                      h1 Bienvenido, #{use.name}!
+                  .panel-body
+                    
+                    - if (messages.success)
+                      
+                      p.bigger= messages.success
+                      br
+                      a.btn.btn-primary.btn-lg(href='/panel/create') Editar Perfil
+
+                    - else
+                      if (use.fn)
+                        p.bigger
+                          | Ya posee un proyecto de dotut, en estos momentos podras encontrarlo en la aplicación Android - Ios, si te equivocastes en alguna información lo podras editar y actualizar, por cualquier incoveniente o consulta no dude en escribirnos: info@dotut.org
+                        br
+                        a.btn.btn-primary.btn-lg(href='/panel/create') Editar Perfil
+
+                      else
+                        p.bigger
+                          | Siendo la primera ves en nuestra plataforma te pedimos que carges el perfil de tu asociación, ong u marca para continuar
+                          b  con el proceso.
+                        br
+                        a.btn.btn-primary.btn-lg(href='/panel/create') Crear Perfil
+          // Footer
+          footer.footer-main
+            | © 2017 
+            strong Dotut
+          // /footer
+       
+    
+    script(src='javascript/jquery.min.js')
+    script(src='javascript/bootstrap.min.js')
+    script(src='javascript/plugins/metismenu/jquery.metisMenu.js')
+    script(src='javascript/plugins/blockui-master/jquery-ui.js')
+    script(src='javascript/plugins/blockui-master/jquery.blockUI.js')
+    script(src='javascript/functions.js')
+ 

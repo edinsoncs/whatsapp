@@ -1,0 +1,645 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    title Dotut - Admin
+    
+    link(rel='shortcut icon', type='image/x-icon', href='images/favicon.ico')
+   
+    link(href='/stylesheet/entypo.css', rel='stylesheet')
+   
+    link(href='/stylesheet/font-awesome.min.css', rel='stylesheet')
+   
+    link(href='/stylesheet/bootstrap.min.css', rel='stylesheet')
+    
+    link(href='/stylesheet/mouldifi-core.css', rel='stylesheet')
+
+    link(href='/stylesheet/mouldifi-forms.css', rel='stylesheet')
+
+  body
+    
+    .page-container
+      
+      .page-sidebar
+        header.site-header
+          .site-logo
+            a(href='/panel')
+              img(src='../img/logo.png', alt='Mouldifi', title='Mouldifi')
+          .sidebar-collapse.hidden-xs
+            a.sidebar-collapse-icon(href='#')
+              i.icon-menu
+          .sidebar-mobile-menu.visible-xs
+            a.mobile-menu-icon(data-target='#side-nav', data-toggle='collapse', href='#')
+              i.icon-menu
+       
+        include inc/menuadmin
+     
+      .main-container
+        //.main-header.row
+          .col-sm-6.col-xs-7
+            
+          .col-sm-6.col-xs-5
+            .pull-right
+              ul.user-info.pull-left
+                li.notifications.dropdown
+                  a.dropdown-toggle(data-close-others='true', data-hover='dropdown', data-toggle='dropdown', href='#')
+                    i.icon-attention
+                    span.badge.badge-info 6
+                  ul.dropdown-menu.pull-right
+                    li.first
+                      .small
+                        a.pull-right.danger(href='#') Mark all Read
+                        |  You have 
+                        strong 3
+                        |  new notifications.
+                    li
+                      ul.dropdown-list
+                        li.unread.notification-success
+                          a(href='#')
+                            i.icon-user-add.pull-right
+                            span.block-line.strong New user registered
+                            span.block-line.small 30 seconds ago
+                        li.unread.notification-secondary
+                          a(href='#')
+                            i.icon-heart.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                        li.unread.notification-primary
+                          a(href='#')
+                            i.icon-user.pull-right
+                            span.block-line.strong Privacy settings have been changed
+                            span.block-line.small 2 hours ago
+                        li.notification-danger
+                          a(href='#')
+                            i.icon-cancel-circled.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                        li.notification-info
+                          a(href='#')
+                            i.icon-info.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                        li.notification-warning
+                          a(href='#')
+                            i.icon-rss.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                    li.external-last
+                      a.danger(href='#') View all notifications
+                // /notifications
+                // Messages
+                li.notifications.dropdown
+                  a.dropdown-toggle(data-close-others='true', data-hover='dropdown', data-toggle='dropdown', href='#')
+                    i.icon-mail
+                    span.badge.badge-secondary 12
+                  ul.dropdown-menu.pull-right
+                    li.first
+                      .dropdown-content-header
+                        i.fa.fa-pencil-square-o.pull-right
+                        |  Messages
+                    li
+                      ul.media-list
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/domnic-brown.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Domnic Brown
+                              span.media-annotation.pull-right Tue
+                            span.text-muted Your product sounds interesting I would love to check this ne...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/john-smith.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold John Smith
+                              span.media-annotation.pull-right 12:30
+                            span.text-muted Thank you for posting such a wonderful content. The writing was outstanding...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/stella-johnson.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Stella Johnson
+                              span.media-annotation.pull-right 2 days ago
+                            span.text-muted Thank you for trusting us to be your source for top quality sporting goods...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/alex-dolgove.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Alex Dolgove
+                              span.media-annotation.pull-right 10:45
+                            span.text-muted
+                              | After our Friday meeting I was thinking about our business relationship and how fortunate...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/domnic-brown.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Domnic Brown
+                              span.media-annotation.pull-right 4:00
+                            span.text-muted
+                              | I would like to take this opportunity to thank you for your cooperation in recently completing...
+                    li.external-last
+                      a.danger(href='#') All Messages
+                // /messages
+              // /user alerts
+        .main-content
+          .row
+            if (use.fn)
+              .col-lg-12
+                .panel.panel-default
+                  .panel-heading.clearfix
+                    h3.panel-title Editar Perfil
+                    
+                  .panel-body
+                    form#rootwizard-2.form-wizard.validate-form-wizard.validate(action="/save/update", method="post", enctype="multipart/form-data")
+                      .wizard-navbar
+                        ul.wizard-steps
+                          li.active
+                            a(href='#tab2-1', data-toggle='tab', aria-expanded='false')
+                              span 1
+                              |  Información Basica
+                          li
+                            a(href='#tab2-2', data-toggle='tab', aria-expanded='true')
+                              span 2
+                              |  Detalles
+                          li
+                            a(href='#tab2-3', data-toggle='tab')
+                              span 3
+                              | Nosotros
+                          li
+                            a(href='#tab2-4', data-toggle='tab')
+                              span 4
+                              |  Contacto
+                      .tab-content
+                        #tab2-1.tab-pane.active
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='name') Nombre o Marca
+                                input#name.form-control.required(value='#{use.fn[0].name}', type='text', name='name')
+                                
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='tipo') Tipo
+                                select#tipo.form-control.required(name="tipo")
+                                  
+                                  if use.fn
+                                    option(value="Seleccione", selected, disabled)
+                                      | Seleccione
+                                  else
+                                    option(value="Seleccione")
+                                      | Seleccione
+                                  
+                                  if use.fn[0].tipo == 'Asociación'
+                                    option(value="Asociación", selected)
+                                      | Asociación
+                                  else
+                                     option(value="Asociación")
+                                      | Asociación
+                                  if use.fn[0].tipo == 'Ong'
+                                      option(value="Ong", selected)
+                                        | Ong
+                                  else
+                                      option(value="Ong")
+                                        | Ong
+
+                                  if use.fn[0].tipo == 'Grupo'
+                                      option(value="Grupo", selected)
+                                        | Grupo
+                                  else
+                                      option(value="Grupo")
+                                        | Grupo
+
+                                  if use.fn[0].tipo == 'Otro'
+                                      option(value="Otro", selected)
+                                        | Otro
+                                  else
+                                    option(value="Otro")
+                                        | Otro
+
+                               
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='pais') Pais
+                                select#pais.form-control.required(name="pais")
+                                  if use.fn
+                                    option(value="Eliga el pais", selected, disabled)
+                                    | Eliga el pais
+                                  else
+                                    option(value="Eliga el pais", disabled)
+                                    | Eliga el pais
+                                  if use.fn
+                                    option(value="Argentina") Argentina
+                                  else
+                                     option(value="Argentina") Argentina
+
+                                  if use.fn[0].pais == 'Bolivia'
+                                    option(value="Bolivia", selected) Bolivia
+                                  else
+                                    option(value="Bolivia") Bolivia
+
+                                  if use.fn[0].pais == 'Ecuador'
+                                    option(value="Ecuador", selected) Ecuador
+                                  else
+                                    option(value="Ecuador") Ecuador
+
+                                  if use.fn[0].pais == 'Colombia'  
+                                    option(value="Colombia", selected) Colombia
+                                  else
+                                    option(value="Colombia") Colombia
+
+                                  if use.fn[0].pais == 'Chile'
+                                    option(value="Chile", selected) Chile
+                                  else
+                                    option(value="Chile") Chile
+
+                                  if use.fn[0].pais == 'Panama'  
+                                    option(value="Panama", selected) Panamá
+                                  else
+                                    option(value="Panama") Panamá
+
+                                  if use.fn[0].pais == 'Panama'    
+                                    option(value="Perú", selected) Perú
+                                  else
+                                    option(value="Perú") Perú
+                                  if use.fn[0].pais == 'Paraguay'   
+                                    option(value="Paraguay", selected) Paraguay
+                                  else
+                                    option(value="Paraguay") Paraguay
+                                  if use.fn[0].pais == 'México'
+                                    option(value="México", selected) México
+                                  else
+                                    option(value="México") México
+                                  if use.fn[0].pais == 'Venezuela'
+                                    option(value="Venezuela", selected) Venezuela
+                                  else
+                                    option(value="Venezuela") Venezuela
+
+                                
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='ciudad') Ciudad
+                                input#ciudad.form-control.required(placeholder='Ingresa la ciudad donde radica tu organización', type='text', name='ciudad', value="#{use.fn[0].ciudad}")
+                                
+                        #tab2-2.tab-pane
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='categoria') Categoria
+                                select#categoria.form-control.required(name="categoria")
+                                  if use.fn
+                                    option(value="Eliga la categoria", selected, disabled)
+                                      | Eliga la categoria
+                                  else
+                                    option(value="Eliga la categoria")
+                                      | Eliga la categoria
+
+                                  if use.fn[0].categoria == 'Deportes'
+                                    option(value="Deportes", selected)
+                                      | Deportes
+                                  else
+                                    option(value="Deportes")
+                                      | Deportes
+
+                                  if use.fn[0].categoria == 'Educación'
+                                    option(value="Educación", selected)
+                                      | Educación
+                                  else
+                                    option(value="Educación")
+                                      | Educación
+
+                                  if use.fn[0].categoria == 'Implantes'
+                                    option(value="Implantes", selected)
+                                      | Implantes
+                                  else
+                                    option(value="Implantes")
+                                      | Implantes
+
+                                  if use.fn[0].categoria == 'Derechos Civiles'
+                                    option(value="Derechos Civiles", selected)
+                                      | Derechos Civiles
+                                  else
+                                    option(value="Derechos Civiles")
+                                      | Derechos Civiles
+
+                                  if use.fn[0].categoria == 'Cultura'
+                                    option(value="Cultura", selected)
+                                      | Cultura
+                                  else
+                                    option(value="Cultura")
+                                      | Cultura
+
+                                  if use.fn[0].categoria == 'Acción Social'
+                                    option(value="Acción Social", selected)
+                                      | Acción Social
+                                  else
+                                    option(value="Acción Social")
+                                      | Acción Social
+
+                                  if use.fn[0].categoria == 'Desarrollos Tecnológicos'
+                                    option(value="Desarrollos Tecnológicos", selected)
+                                      | Desarrollos Tecnologícos
+                                  else
+                                    option(value="Desarrollos Tecnológicos")
+                                      | Desarrollos Tecnologícos
+
+                                  if use.fn[0].categoria == 'Salud'
+                                    option(value="Salud", selected)
+                                      | Salud
+                                  else
+                                    option(value="Salud")
+                                      | Salud
+                                  
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='logo') Logo
+                                input#logo.form-control(type="file", name="logo")
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='bg') Background
+                                input#bg.form-control(type="file", name="bg")
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='video') Video
+                                input#video.form-control(type="text", placeholder="Ingrese el url del video, solo youtube", name="video", value="#{use.fn[0].video}")
+                        #tab2-3.tab-pane
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='somos') Quienes somos
+                                textarea#somos.form-control.required(name="somos", cols="30", rows="10")
+                                  | #{use.fn[0].somos}
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='hacemos') Que hacemos
+                                textarea#hacemos.form-control.required(name="hacemos", cols="30", rows="10")
+                                  | #{use.fn[0].hacemos}
+                          
+                        #tab2-4.tab-pane
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='tele') Telefono
+                                input#tele.form-control.required(type="phone", name="phone", placeholder="+(codigo) numero", value="#{use.fn[0].phone}")
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='email') Email
+                                input#email.form-control.required(type="email", name="email", placeholder="info@name.com", value="#{use.fn[0].email}")
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='web') Web
+                                input#web.form-control.required(type="url", name="web" placeholder="http://marca.com", value="#{use.fn[0].web}")
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='enviar') Actualizar
+                                input#web.form-control.btn.btn-default.required(type="submit", value="Actualizar Perfil")
+                        
+                        ul.pager.wizard
+                          li.previous
+                            a(href='javascript:void(0)')
+                              i.icon-left-open
+                              | Anterior
+                          li.next
+                            a(href='javascript:void(0)')
+                              | Siguiente
+                              i.icon-right-open
+            else
+              .col-lg-12
+                .panel.panel-default
+                  .panel-heading.clearfix
+                    h3.panel-title Cargar Perfil
+                    
+                  .panel-body
+                    form#rootwizard-2.form-wizard.validate-form-wizard.validate(action="/save/perfil", method="post", enctype="multipart/form-data")
+                      .wizard-navbar
+                        ul.wizard-steps
+                          li.active
+                            a(href='#tab2-1', data-toggle='tab', aria-expanded='false')
+                              span 1
+                              |  Información Basica
+                          li
+                            a(href='#tab2-2', data-toggle='tab', aria-expanded='true')
+                              span 2
+                              |  Detalles
+                          li
+                            a(href='#tab2-3', data-toggle='tab')
+                              span 3
+                              | Nosotros
+                          li
+                            a(href='#tab2-4', data-toggle='tab')
+                              span 4
+                              |  Contacto
+                      .tab-content
+                        #tab2-1.tab-pane.active
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='name') Nombre o Marca
+                                input#name.form-control.required(placeholder='#{use.name}', type='text', name='name')
+                                
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='tipo') Tipo
+                                select#tipo.form-control.required(name="tipo")
+                                  option(value="Seleccione", selected, disabled)
+                                    | Seleccione
+                                  option(value="Asociación")
+                                    | Asociación
+                                  option(value="Ong")
+                                    | Ong
+                                  option(value="Grupo")
+                                    | Grupo
+                                  option(value="Otro")
+                                    | Otro
+                               
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='pais') Pais
+                                select#pais.form-control.required(name="pais")
+                                  option(value="Eliga el pais", selected, disabled)
+                                    | Eliga el pais
+                                  option(value="Argentina") Argentina
+                                  option(value="Colombia") Colombia
+                                  option(value="Chile") Chile
+                                  option(value="Panama") Panamá
+                                  option(value="Peru") Peru
+                                  option(value="Paraguay") Paraguay
+                                
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='ciudad') Ciudad
+                                input#ciudad.form-control.required(placeholder='Ingresa la ciudad donde radica tu organización', type='text', name='ciudad')
+                                
+                        #tab2-2.tab-pane
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='categoria') Categoria
+                                select#categoria.form-control.required(name="categoria")
+                                  option(value="Eliga la categoria", selected, disabled)
+                                    | Eliga la categoria
+                                  option(value="Deportes")
+                                    | Deportes
+                                  option(value="Educación")
+                                    | Educación
+                                  option(value="Implantes")
+                                    | Implantes
+                                  option(value="Derechos Civiles")
+                                    | Derechos Civiles
+                                  option(value="Cultura")
+                                    | Cultura
+                                  option(value="Acción Social")
+                                    | Acción Social
+                                  option(value="Desarrollos Tecnológicos")
+                                    | Desarrollos Tecnologícos
+                                  option(value="Salud")
+                                    | Salud
+                                  
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='logo') Logo
+                                input#logo.form-control.required(type="file", name="logo")
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='bg') Background
+                                input#bg.form-control.required(type="file", name="bg")
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='video') Video
+                                input#video.form-control(type="text", placeholder="Ingrese el url del video, solo youtube", name="video")
+                        #tab2-3.tab-pane
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='somos') Quienes somos
+                                textarea#somos.form-control.required(name="somos", cols="30", rows="10")
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='hacemos') Que hacemos
+                                textarea#hacemos.form-control.required(name="hacemos", cols="30", rows="10")
+                          
+                        #tab2-4.tab-pane
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='tele') Telefono
+                                input#tele.form-control.required(type="phone", name="phone", placeholder="+(codigo) numero")
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='email') Email
+                                input#email.form-control.required(type="email", name="email", placeholder="info@name.com")
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='web') Web
+                                input#web.form-control.required(type="url", name="web" placeholder="http://marca.com")
+                            .col-md-6
+                              .form-group
+                                label.control-label(for='enviar') Finalizar
+                                input#web.form-control.btn.btn-default.required(type="submit", value="Enviar Perfil")
+                        
+                        ul.pager.wizard
+                          li.previous
+                            a(href='javascript:void(0)')
+                              i.icon-left-open
+                              | Previous
+                          li.next
+                            a(href='javascript:void(0)')
+                              | Next
+                              i.icon-right-open
+          
+          footer.footer-main
+            | © 2017 
+            strong Dotut
+        
+     
+
+
+    script(src='/javascript/jquery.min.js')
+    script(src='/javascript/bootstrap.min.js')
+    script(src='/javascript/plugins/metismenu/jquery.metisMenu.js')
+    script(src='/javascript/plugins/blockui-master/jquery-ui.js')
+    script(src='/javascript/plugins/blockui-master/jquery.blockUI.js')
+   
+    script(src='/javascript/jquery.validate.min.js')
+    script(src='/javascript/plugins/wizard/jquery.bootstrap.wizard.min.js')
+    script.
+      $(document).ready(function () {
+      // Form Wizard
+      if ($.isFunction($.fn.bootstrapWizard))
+      {
+      $('#rootwizard').bootstrapWizard({
+      tabClass: 'wizard-steps',
+      onTabShow: function ($tab, $navigation, index)
+      {
+      $tab.prevAll().addClass('completed');
+      $tab.nextAll().removeClass('completed');
+      $tab.removeClass('completed');
+      }
+      });
+      $(".validate-form-wizard").each(function (i, formwizard)
+      {
+      var $this = $(formwizard);
+      var $progress = $this.find(".steps-progress div");
+      var $validator = $this.validate({
+      rules: {
+      username: {
+      required: true,
+      minlength: 3
+      },
+      password: {
+      required: true,
+      minlength: 3
+      },
+      confirmpassword: {
+      required: true,
+      minlength: 3
+      },
+      email: {
+      required: true,
+      email: true,
+      minlength: 3,
+      }
+      }
+      });
+      // Validation
+      var checkValidaion = function (tab, navigation, index)
+      {
+      if ($this.hasClass('validate'))
+      {
+      var $valid = $this.valid();
+      if (!$valid) {
+      $validator.focusInvalid();
+      return false;
+      }
+      }
+      return true;
+      };
+      $this.bootstrapWizard({
+      tabClass: 'wizard-steps',
+      onNext: checkValidaion,
+      onTabClick: checkValidaion,
+      onTabShow: function ($tab, $navigation, index)
+      {
+      $tab.removeClass('completed');
+      $tab.prevAll().addClass('completed');
+      $tab.nextAll().removeClass('completed');
+      }
+      });
+      });
+      }
+      });
+    script(src='/javascript/functions.js')
+

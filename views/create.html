@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Dotut - Admin</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="/stylesheet/entypo.css" rel="stylesheet">
+    <link href="/stylesheet/font-awesome.min.css" rel="stylesheet">
+    <link href="/stylesheet/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheet/mouldifi-core.css" rel="stylesheet">
+    <link href="/stylesheet/mouldifi-forms.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="page-sidebar">
+        <!-- Site header-->
+        <header class="site-header">
+          <div class="site-logo"><a href="index.html"><img src="images/logo.png" alt="Mouldifi" title="Mouldifi"></a></div>
+          <div class="sidebar-collapse hidden-xs"><a class="sidebar-collapse-icon" href="#"><i class="icon-menu"></i></a></div>
+          <div class="sidebar-mobile-menu visible-xs"><a class="mobile-menu-icon" data-target="#side-nav" data-toggle="collapse" href="#"><i class="icon-menu"></i></a></div>
+        </header>
+        <!-- /site header-->
+        <!-- Main navigation-->
+        <ul class="main-menu navbar-collapse collapse" id="side-nav">
+          <li class="has-sub"><a href="index.html"><i class="icon-gauge"></i><span class="title">Dashboard</span></a>
+            <ul class="nav collapse">
+              <li><a href="index.html"><span class="title">Misc.</span></a></li>
+              <li><a href="ecommerce-dashboard.html"><span class="title">E-Commerce</span></a></li>
+              <li><a href="news-dashboard.html"><span class="title">News Portal</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="collapsed-sidebar.html"><i class="icon-layout"></i><span class="title">Layouts</span></a>
+            <ul class="nav collapse">
+              <li><a href="collapsed-sidebar.html"><span class="title">Collapsed Sidebar</span></a></li>
+              <li><a href="fixed-sidebar.html"><span class="title">Fixed Sidebar</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="panels.html"><i class="icon-newspaper"></i><span class="title">UI Elements</span></a>
+            <ul class="nav collapse">
+              <li><a href="panels.html"><span class="title">Panels</span></a></li>
+              <li><a href="buttons.html"><span class="title">Buttons</span></a></li>
+              <li><a href="typography.html"><span class="title">Typography</span></a></li>
+              <li><a href="tabs-accordions.html"><span class="title">Tabs & Accordions</span></a></li>
+              <li><a href="tooltips-popovers.html"><span class="title">Tooltips & Popovers</span></a></li>
+              <li><a href="navbars.html"><span class="title">Navbars</span></a></li>
+              <li><a href="breadcrumbs.html"><span class="title">Breadcrumbs</span></a></li>
+              <li><a href="badges-label.html"><span class="title">Badges & Labels</span></a></li>
+              <li><a href="progress-bars.html"><span class="title">Progress Bars</span></a></li>
+              <li><a href="modals.html"><span class="title">Modals</span></a></li>
+              <li><a href="alerts.html"><span class="title">Alerts</span></a></li>
+              <li><a href="pagination.html"><span class="title">Pagination</span></a></li>
+              <li><a href="video.html"><span class="title">Video</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="basic-tables.html"><i class="icon-window"></i><span class="title">Tables</span></a>
+            <ul class="nav collapse">
+              <li><a href="basic-tables.html"><span class="title">Basic Tables</span></a></li>
+              <li><a href="data-tables.html"><span class="title">Data Tables</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub active"><a href="form-basic.html"><i class="icon-doc-text"></i><span class="title">Forms</span></a>
+            <ul class="nav">
+              <li><a href="form-basic.html"><span class="title">Basic Form</span></a></li>
+              <li><a href="form-advanced.html"><span class="title">Advanced Plugins</span></a></li>
+              <li class="active"><a href="form-wizard.html"><span class="title">Form Wizard</span></a></li>
+              <li><a href="file-upload.html"><span class="title">File upload</span></a></li>
+              <li><a href="editors.html"><span class="title">Editors</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="graph-flot.html"><i class="icon-chart-bar"></i><span class="title">Graphs</span></a>
+            <ul class="nav collapse">
+              <li><a href="graph-flot.html"><span class="title">Flot Charts</span></a></li>
+              <li><a href="graph-morris.html"><span class="title">Morris Charts</span></a></li>
+              <li><a href="graph-peity.html"><span class="title">Peity Charts</span></a></li>
+              <li><a href="graph-sparkline.html"><span class="title">Sparkline Charts</span></a></li>
+              <li><a href="graph-chartjs.html"><span class="title">ChartsJs</span></a></li>
+              <li><a href="graph-chartist.html"><span class="title">Chartist</span></a></li>
+              <li><a href="graph-c3.html"><span class="title">C3 Charts</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="mail-inbox.html"><i class="icon-mail"></i><span class="title">Mailbox</span></a>
+            <ul class="nav collapse">
+              <li><a href="mail-inbox.html"><span class="title">Inbox</span></a></li>
+              <li><a href="mail-compose.html"><span class="title">Compose Mail</span></a></li>
+              <li><a href="mail-read.html"><span class="title">View Mail</span></a></li>
+            </ul>
+          </li>
+          <li><a href="maps-vector.html"><i class="icon-location"></i><span class="title">Vector Map</span><span class="label label-secondary pull-right">NEW</span></a></li>
+          <li class="has-sub"><a href="login.html"><i class="icon-google-circles"></i><span class="title">Various Screens</span></a>
+            <ul class="nav collapse">
+              <li><a href="login.html"><span class="title">Login</span></a></li>
+              <li><a href="register.html"><span class="title">Register</span></a></li>
+              <li><a href="forgot-password.html"><span class="title">Forgot password</span></a></li>
+              <li><a href="lockscreen.html"><span class="title">Lockscreen</span></a></li>
+              <li><a href="error-404.html"><span class="title">404 Page</span></a></li>
+              <li><a href="blank-page.html"><span class="title">Blank Page</span></a></li>
+              <li><a href="comments.html"><span class="title">Comments</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="icons-entypo.html"><i class="icon-thumbs-up"></i><span class="title">Icons</span></a>
+            <ul class="nav collapse">
+              <li><a href="icons-entypo.html"><span class="title">Entypo</span></a></li>
+              <li><a href="icons-fontawesome.html"><span class="title">Font Awesome</span></a></li>
+              <li><a href="icons-glyphicons.html"><span class="title">Glyph Icons</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="simple-view.html"><i class="icon-list"></i><span class="title">List Views</span></a>
+            <ul class="nav collapse">
+              <li><a href="simple-view.html"><span class="title">Simple View</span></a></li>
+              <li><a href="cards-view.html"><span class="title">Cards View</span></a></li>
+              <li><a href="strip-view.html"><span class="title">Strip View</span></a></li>
+              <li><a href="table-view.html"><span class="title">Table View</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="short-view.html"><i class="icon-popup"></i><span class="title">Grid Views</span></a>
+            <ul class="nav collapse">
+              <li><a href="short-view.html"><span class="title">Short View</span></a></li>
+              <li><a href="detailed-view.html"><span class="title">Detailed View</span></a></li>
+              <li><a href="detailed-view-2.html"><span class="title">Detailed Action View</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="#/"><i class="icon-flow-tree"></i><span class="title">Menu Levels</span></a>
+            <ul class="nav collapse">
+              <li><a href="#/"><span class="title">Menu Level 1.1</span></a></li>
+              <li><a href="#/"><span class="title">Menu Level 1.2</span></a></li>
+              <li class="has-sub"><a href="#/"><span class="title">Menu Level 1.3</span></a>
+                <ul class="nav collapse">
+                  <li><a href="#/"><span class="title">Menu Level 2.1</span></a></li>
+                  <li class="has-sub"><a href="#/"><span class="title">Menu Level 2.2</span></a>
+                    <ul class="nav collapse">
+                      <li class="has-sub"><a href="#/"><span class="title">Menu Level 3.1</span></a>
+                        <ul class="nav collapse">
+                          <li><a href="#/"><span class="title">Menu Level 4.1</span></a></li>
+                        </ul>
+                      </li>
+                      <li><a href="#/"><span class="title">Menu Level 3.2</span></a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#/"><span class="title">Menu Level 2.3</span></a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- /main navigation-->
+      </div>
+      <div class="main-container">
+        <!-- Main header-->
+        <div class="main-header row">
+          <div class="col-sm-6 col-xs-7">
+            <!-- User info-->
+            <ul class="user-info pull-left">
+              <li class="profile-info dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"><img class="img-circle avatar" width="44" alt="" src="images/man-3.jpg">John Henderson <span class="caret"></span></a>
+                <!-- User action menu-->
+                <ul class="dropdown-menu">
+                  <li><a href="#/"><i class="icon-user"></i>My profile</a></li>
+                  <li><a href="#/"><i class="icon-mail"></i>Messages</a></li>
+                  <li><a href="#"><i class="icon-clipboard"></i>Tasks</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#"><i class="icon-cog"></i>Account settings</a></li>
+                  <li><a href="#"><i class="icon-logout"></i>Logout</a></li>
+                </ul>
+                <!-- /user action menu-->
+              </li>
+            </ul>
+            <!-- /user info-->
+          </div>
+          <div class="col-sm-6 col-xs-5">
+            <div class="pull-right">
+              <!-- User alerts-->
+              <ul class="user-info pull-left">
+                <!-- Notifications-->
+                <li class="notifications dropdown"><a class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-toggle="dropdown" href="#"><i class="icon-attention"></i><span class="badge badge-info">6</span></a>
+                  <ul class="dropdown-menu pull-right">
+                    <li class="first">
+                      <div class="small"><a class="pull-right danger" href="#">Mark all Read</a> You have <strong>3</strong> new notifications.</div>
+                    </li>
+                    <li>
+                      <ul class="dropdown-list">
+                        <li class="unread notification-success"><a href="#"><i class="icon-user-add pull-right"></i><span class="block-line strong">New user registered</span><span class="block-line small">30 seconds ago</span></a></li>
+                        <li class="unread notification-secondary"><a href="#"><i class="icon-heart pull-right"></i><span class="block-line strong">Someone special liked this</span><span class="block-line small">60 seconds ago</span></a></li>
+                        <li class="unread notification-primary"><a href="#"><i class="icon-user pull-right"></i><span class="block-line strong">Privacy settings have been changed</span><span class="block-line small">2 hours ago</span></a></li>
+                        <li class="notification-danger"><a href="#"><i class="icon-cancel-circled pull-right"></i><span class="block-line strong">Someone special liked this</span><span class="block-line small">60 seconds ago</span></a></li>
+                        <li class="notification-info"><a href="#"><i class="icon-info pull-right"></i><span class="block-line strong">Someone special liked this</span><span class="block-line small">60 seconds ago</span></a></li>
+                        <li class="notification-warning"><a href="#"><i class="icon-rss pull-right"></i><span class="block-line strong">Someone special liked this</span><span class="block-line small">60 seconds ago</span></a></li>
+                      </ul>
+                    </li>
+                    <li class="external-last"><a class="danger" href="#">View all notifications</a></li>
+                  </ul>
+                </li>
+                <!-- /notifications-->
+                <!-- Messages-->
+                <li class="notifications dropdown"><a class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-toggle="dropdown" href="#"><i class="icon-mail"></i><span class="badge badge-secondary">12</span></a>
+                  <ul class="dropdown-menu pull-right">
+                    <li class="first">
+                      <div class="dropdown-content-header"><i class="fa fa-pencil-square-o pull-right"></i> Messages</div>
+                    </li>
+                    <li>
+                      <ul class="media-list">
+                        <li class="media">
+                          <div class="media-left"><img class="img-circle img-sm" alt="" src="images/domnic-brown.png"></div>
+                          <div class="media-body"><a class="media-heading" href="#"><span class="text-semibold">Domnic Brown</span><span class="media-annotation pull-right">Tue</span></a><span class="text-muted">Your product sounds interesting I would love to check this ne...</span></div>
+                        </li>
+                        <li class="media">
+                          <div class="media-left"><img class="img-circle img-sm" alt="" src="images/john-smith.png"></div>
+                          <div class="media-body"><a class="media-heading" href="#"><span class="text-semibold">John Smith</span><span class="media-annotation pull-right">12:30</span></a><span class="text-muted">Thank you for posting such a wonderful content. The writing was outstanding...</span></div>
+                        </li>
+                        <li class="media">
+                          <div class="media-left"><img class="img-circle img-sm" alt="" src="images/stella-johnson.png"></div>
+                          <div class="media-body"><a class="media-heading" href="#"><span class="text-semibold">Stella Johnson</span><span class="media-annotation pull-right">2 days ago</span></a><span class="text-muted">Thank you for trusting us to be your source for top quality sporting goods...</span></div>
+                        </li>
+                        <li class="media">
+                          <div class="media-left"><img class="img-circle img-sm" alt="" src="images/alex-dolgove.png"></div>
+                          <div class="media-body"><a class="media-heading" href="#"><span class="text-semibold">Alex Dolgove</span><span class="media-annotation pull-right">10:45</span></a><span class="text-muted">After our Friday meeting I was thinking about our business relationship and how fortunate...</span></div>
+                        </li>
+                        <li class="media">
+                          <div class="media-left"><img class="img-circle img-sm" alt="" src="images/domnic-brown.png"></div>
+                          <div class="media-body"><a class="media-heading" href="#"><span class="text-semibold">Domnic Brown</span><span class="media-annotation pull-right">4:00</span></a><span class="text-muted">I would like to take this opportunity to thank you for your cooperation in recently completing...</span></div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="external-last"><a class="danger" href="#">All Messages</a></li>
+                  </ul>
+                </li>
+                <!-- /messages-->
+              </ul>
+              <!-- /user alerts-->
+            </div>
+          </div>
+        </div>
+        <!-- /main header-->
+        <!-- Main content-->
+        <div class="main-content">
+          <h1 class="page-title">Form Wizard</h1>
+          <!-- Breadcrumb-->
+          <ol class="breadcrumb breadcrumb-2">
+            <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="form-basic.html">Forms</a></li>
+            <li class="active"><strong>Form Wizard</strong></li>
+          </ol>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                  <h3 class="panel-title">Simple Form Wizard</h3>
+                  <ul class="panel-tool-options">
+                    <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                    <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                    <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                  </ul>
+                </div>
+                <div class="panel-body">
+                  <form class="form-horizontal form-wizard" id="rootwizard">
+                    <div class="wizard-navbar">
+                      <ul>
+                        <li class="completed"><a href="#tab1" data-toggle="tab"><span>1</span> First</a></li>
+                        <li class="active"><a href="#tab2" data-toggle="tab"><span>2</span> Second</a></li>
+                        <li><a href="#tab3" data-toggle="tab"><span>3</span> Third</a></li>
+                        <li><a href="#tab4" data-toggle="tab"><span>4</span> Forth</a></li>
+                        <li><a href="#tab5" data-toggle="tab"><span>5</span> Fifth</a></li>
+                        <li><a href="#tab6" data-toggle="tab"><span>6</span> Sixth</a></li>
+                        <li><a href="#tab7" data-toggle="tab"><span>7</span> Seventh</a></li>
+                      </ul>
+                    </div>
+                    <div class="tab-content">
+                      <div class="tab-pane" id="tab1">Step: 1</div>
+                      <div class="tab-pane active" id="tab2">Step: 2</div>
+                      <div class="tab-pane" id="tab3">Step: 3</div>
+                      <div class="tab-pane" id="tab4">Step: 4</div>
+                      <div class="tab-pane" id="tab5">Step: 5</div>
+                      <div class="tab-pane" id="tab6">Step: 6</div>
+                      <div class="tab-pane" id="tab7">Step: 7</div>
+                      <ul class="pager wizard">
+                        <li class="previous first"><a href="javascript:void(0)">First</a></li>
+                        <li class="previous"><a href="javascript:void(0)"><i class="icon-left-open"></i>Previous</a></li>
+                        <li class="next last"><a href="javascript:void(0)">Last</a></li>
+                        <li class="next"><a href="javascript:void(0)">Next <i class="icon-right-open"></i></a></li>
+                      </ul>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                  <h3 class="panel-title">Form Wizard with Validation</h3>
+                  <ul class="panel-tool-options">
+                    <li><a data-rel="collapse" href="#"><i class="icon-down-open"></i></a></li>
+                    <li><a data-rel="reload" href="#"><i class="icon-arrows-ccw"></i></a></li>
+                    <li><a data-rel="close" href="#"><i class="icon-cancel"></i></a></li>
+                  </ul>
+                </div>
+                <div class="panel-body">
+                  <form class="form-wizard validate-form-wizard validate" id="rootwizard-2">
+                    <div class="wizard-navbar">
+                      <ul>
+                        <li class="active"><a href="#tab2-1" data-toggle="tab"><span>1</span> Account Information</a></li>
+                        <li><a href="#tab2-2" data-toggle="tab"><span>2</span> Personal Information</a></li>
+                        <li><a href="#tab2-3" data-toggle="tab"><span>3</span> Payment Information</a></li>
+                        <li><a href="#tab2-4" data-toggle="tab"><span>4</span> Confirm and Finish</a></li>
+                      </ul>
+                    </div>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="tab2-1">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="username">Username</label>
+                              <input class="form-control required" id="username" placeholder="Username" type="text" name="username">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="password">Password</label>
+                              <input class="form-control required" id="password" placeholder="Password" type="password" name="password">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="confirmpassword">Confirm password</label>
+                              <input class="form-control required" id="confirmpassword" placeholder="Confirm Password" type="password" name="confirmpassword">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="email">Email</label>
+                              <input class="form-control required email" id="email" placeholder="Please enter your email" type="text" name="email">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="tab2-2">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="name">Full Name</label>
+                              <input class="form-control required" id="name" placeholder="Name" type="text" name="name">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="emailfield">Email</label>
+                              <input class="form-control required email" id="emailfield" placeholder="Please enter your email" type="text" name="emailfield">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label class="control-label" for="about">Write Something About You</label>
+                              <textarea class="form-control" id="about" rows="3"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="tab2-3">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="cardholdername">Card Holder Name</label>
+                              <input class="form-control required" id="cardholdername" placeholder="Card Holder Name" type="text" name="cardholdername">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="cardnumber">Card Number</label>
+                              <input class="form-control required" id="cardnumber" placeholder="Card Number" type="text" name="cardnumber">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="cvc">CVC</label>
+                              <input class="form-control required" id="cvc" placeholder="CVC" type="text" name="cvc">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="control-label" for="cardtype">Card Type</label>
+                              <input class="form-control required" id="cardtype" placeholder="Card Type" type="text" name="cardtype">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="tab2-4">
+                        <h3 class="title text-info">Terms and Conditions</h3>
+                        <p><strong>Lorem</strong> Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox">I agree with the Terms and Conditions.
+                          </label>
+                        </div>
+                      </div>
+                      <ul class="pager wizard">
+                        <li class="previous"><a href="javascript:void(0)"><i class="icon-left-open"></i>Previous</a></li>
+                        <li class="next"><a href="javascript:void(0)">Next<i class="icon-right-open"></i></a></li>
+                      </ul>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Footer-->
+          <footer class="footer-main">© 2016 <strong>Mouldifi</strong> Admin Theme by <a target="_blank" href="#/">G-axon</a></footer>
+          <!-- /footer-->
+        </div>
+        <!-- /main content-->
+      </div>
+    </div>
+    <script src="/javascript/jquery.min.js"></script>
+    <script src="/javascript/bootstrap.min.js"></script>
+    <script src="/javascript/plugins/metismenu/jquery.metisMenu.js"></script>
+    <script src="/javascript/plugins/blockui-master/jquery-ui.js"></script>
+    <script src="/javascript/plugins/blockui-master/jquery.blockUI.js"></script>
+    <script>
+      $(document).ready(function () {
+      // Form Wizard
+      if ($.isFunction($.fn.bootstrapWizard))
+      {
+      $('#rootwizard').bootstrapWizard({
+      tabClass: 'wizard-steps',
+      onTabShow: function ($tab, $navigation, index)
+      {
+      $tab.prevAll().addClass('completed');
+      $tab.nextAll().removeClass('completed');
+      $tab.removeClass('completed');
+      }
+      });
+      $(".validate-form-wizard").each(function (i, formwizard)
+      {
+      var $this = $(formwizard);
+      var $progress = $this.find(".steps-progress div");
+      var $validator = $this.validate({
+      rules: {
+      username: {
+      required: true,
+      minlength: 3
+      },
+      password: {
+      required: true,
+      minlength: 3
+      },
+      confirmpassword: {
+      required: true,
+      minlength: 3
+      },
+      email: {
+      required: true,
+      email: true,
+      minlength: 3,
+      }
+      }
+      });
+      // Validation
+      var checkValidaion = function (tab, navigation, index)
+      {
+      if ($this.hasClass('validate'))
+      {
+      var $valid = $this.valid();
+      if (!$valid) {
+      $validator.focusInvalid();
+      return false;
+      }
+      }
+      return true;
+      };
+      $this.bootstrapWizard({
+      tabClass: 'wizard-steps',
+      onNext: checkValidaion,
+      onTabClick: checkValidaion,
+      onTabShow: function ($tab, $navigation, index)
+      {
+      $tab.removeClass('completed');
+      $tab.prevAll().addClass('completed');
+      $tab.nextAll().removeClass('completed');
+      }
+      });
+      });
+      }
+      });
+      
+      
+      
+    </script>
+    <script src="/javascript/functions.js"></script>
+    <script src="/javascript/jquery.validate.min.js"></script>
+  </body>
+</html>

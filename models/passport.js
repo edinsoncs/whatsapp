@@ -20,12 +20,12 @@ module.exports = function(passport){
 
 	//Configuramos el login del usuario LOCAL
 	passport.use(new local({
-		usernameField: 'username',
+		usernameField: 'email',
 		passwordField: 'password'
-	}, function(username, password, done){
+	}, function(email, password, done){
 		process.nextTick(function(){
     		usuario.findOne({
-    			'username': username,
+    			'email': email,
     			'password': password
     		}, function(err, user) {
     			if(err) {

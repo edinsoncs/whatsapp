@@ -1,55 +1,284 @@
-<!DOCTYPE html>
-html(lang="en")
+doctype html
+html(lang='en')
   head
-    meta(charset="UTF-8")
-    title #{title}
-    link(rel="stylesheet", href="../css/normalize.css")
-    link(rel="stylesheet", href="../css/app.css")
-    script(src="https://code.jquery.com/jquery-1.10.2.js")
-    script(src="http://timeago.yarp.com/jquery.timeago.js")
-    script(src="/socket.io/socket.io.js")
-    script(src="../js/web.js")
-    script(src="../js/app.js")
-    script(src="../js/home.js")
-    
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    title Dotut
+    // Bootstrap
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+    link(href='css/style.css', rel='stylesheet')
+    link(rel='stylesheet', href='css/device-mockups/device-mockups.min.css')
+    link(href='css/slick.css', rel='stylesheet')
+    // Fonts
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Ubuntu', rel='stylesheet')
   body
-    div.bgPrimary
-    main
-      section.panelAccess
-        header.panelAccess__Header
-          h2.title
-            | Ingresar Whatssap
-          if messages
-            p.success
-              | #{messages.user}
-
-        form.formLogin(action="/login", method="post")
-          fieldset.fieldset
-            input(type="text", name="username", placeholder="Nickname")
-          fieldset.fieldset
-            input(type="password", name="password", placeholder="Password")
-          fieldset.fieldset
-            input(type="submit", value="Ingresar")
-        form.formRegister(action="/register", method="post")
-          fieldset.fieldset
-            input(type="text", name="username", placeholder="Nickname", required, title="Completa con un nick o nombre")
-          fieldset.fieldset
-            input(type="password", name="password", placeholder="Password", required)
-          fieldset.fieldset
-            input(type="password", name="otherpassword", placeholder="Confirmar Password", required)
-          //fieldset.fieldset
-            input(type="file", name="avatar", id="avatar", required)
-            label(for="avatar", class="isAvatar")
-              | Selecciona tu avatar
-          fieldset.fieldset
-            input(type="submit", value="Crear Cuenta")
-        div.containerLinks
-          a.link.jsNewAccount(href="#")
-            | Crear Cuenta
-          a.link.jsAccessAccount(href="#")
-            | Ya tienes una cuenta?
-      
-        
-
-      
-  
+    nav.navbar.navbar-default.navbar-fixed-top.miNav
+      .container
+        .navbar-header
+          button#nav-toggle.ui-navbar-toggle.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          .logo
+            a(href='#pagetop')
+              img(src='img/logo.png', alt='', height='35px')
+          // <h3>Dotut</h3>
+        .collapse.navbar-collapse.navbar-1
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#video') Video
+            li
+              a(href='#about') About
+            li
+              a(href='#features') Features
+            li
+              a(href='#screens') Screens
+            li
+              a(href='#getit') Conseguirlo
+      .btn-login
+        a(href='/access') Login
+    header#pagetop
+      .container
+        .row
+          .col-md-7
+            .header-content
+              .header-content-inner
+                h1 Hello, world!
+                .btn.btn-download.wow.animated.fadeInLeft
+                  a(href='#')
+                    i.fa.fa-android.pull-left
+                    |                     Get it on
+                    br
+                    strong Google Play
+                #btn-apple.btn.btn-download.wow.animated.fadeInRight
+                  a(href='#')
+                    i.fa.fa-apple.pull-left
+                    |                     Get it on
+                    br
+                    strong App Store
+          .col-md-5
+            .header-content
+              .smartphone
+    // Section video
+    section#video.elVideo
+      .container
+        .row
+          .col-md-12
+            .section-heading
+              h1.elVideoH1 ElVideo
+          .col-md-12
+            .containerVideo
+              iframe.videoYoutube(width='640', height='360', src='https://www.youtube.com/embed/P6tJjY3yDsM', frameborder='0', allowfullscreen='')
+    // Section about
+    section.about
+      .container-fluid
+        .row
+          .col-md-12.noPadding
+            .col-md-6.noPadding
+              .features-bg
+                .texture-overlay
+            #about.col-md-6.noPadding
+              .seccionAbout
+                .containerAbout
+                  h1 About
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut maxime iste, vero hic quae. Est omnis quod similique. Repellat molestiae nemo ex, porro sint at praesentium! Enim sapiente iure, hic.
+                  h3 Otro título
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut maxime iste, vero hic quae. Est omnis quod similique. Repellat molestiae nemo ex, porro sint at praesentium! Enim sapiente iure, hic.
+    // Section features
+    section#features.features
+      .container
+        .row
+          .col-md-12
+            .section-heading
+              h1 Features
+              h2 Descripción bla bla bla Lorem ipsum dolor sit amet
+        .row
+          .verticalAlign.containerFeatures
+            .col-md-4.elIphone
+              .device-container
+                .device-mockup.iphone6_plus.portrait.white
+                  .device
+                    .screen
+                      img.img-responsive(src='img/demo-screen-1.jpg', alt='')
+            .col-md-8
+              .container-fluid
+                .row.rowUno
+                  .col-md-6
+                    .feature-item
+                      i.fa.fa-laptop.fa-2x
+                      h3 Device Mockups
+                      p Ready to use HTML/CSS device mockups, no Photoshop required!
+                  .col-md-6
+                    .feature-item
+                      i.fa.fa-laptop.fa-2x
+                      h3 Flexible Use
+                      p Put an image, video, animation, or anything else in the screen!
+                .row.rowDos
+                  .col-md-6
+                    .feature-item
+                      i.fa.fa-laptop.fa-2x
+                      h3 Free to Use
+                      p As always, this theme is free to download and use for any purpose!
+                  .col-md-6
+                    .feature-item
+                      i.fa.fa-laptop.fa-2x
+                      h3 Open Source
+                      p Since this theme is MIT licensed, you can use it commercially!
+    // Section screens
+    section#screens.screens
+      .container
+        .section-heading
+          h1 Screens
+        .slider.filtering
+          .screenOne
+            img(src='img/screen1.jpg', alt='')
+          .screenOne
+            img(src='img/screen2.jpg', alt='')
+          .screenOne
+            img(src='img/screen1.jpg', alt='')
+          .screenOne
+            img(src='img/screen2.jpg', alt='')
+          .screenOne
+            img(src='img/screen1.jpg', alt='')
+          .screenOne
+            img(src='img/screen2.jpg', alt='')
+          .screenOne
+            img(src='img/screen1.jpg', alt='')
+    // Section CTA
+    section#getit.cta
+      .container
+        .row
+          .col-md-8.col-md-offset-2
+            .containerCTA
+              .section-heading
+                h1
+                  | Lorem ipsum dolor sit amet, 
+                  br
+                  |  consectetur adipisicing elit.
+                h3
+                  | Vel necessitatibus, commodi ad quasi quaerat quis officiis maxime facere magni aliquid
+              .badges
+                a.badge-link(href='#')
+                  img(src='img/google-play-badge.svg', alt='')
+                a.badge-link(href='#')
+                  img(src='img/app-store-badge.svg', alt='')
+    // Footer
+    footer
+      .container.text-center
+        .col-md-4
+          ul
+            li
+              a(href='login.html') Login
+            li
+              a(href='#') Contacto
+            li
+              a(href='#') Sponsors
+            li
+              a(href='#') Privacidad
+            li
+              a(href='#') Términos
+        .col-md-4.containerUno
+          .containerCopyright
+            p Copyright © Dotut 2017
+            p Todos los derechos reservados.
+        .col-md-4
+          .containerRedes.verticalAlign
+            .social-icons.text-center
+              .icon.facebook
+                a(href='#', target='_blank')
+                  i.fa.fa-facebook
+              .icon.twitter
+                a(href='#', target='_blank')
+                  i.fa.fa-twitter
+              .icon.linkedin
+                a(href='#', target='_blank')
+                  i.fa.fa-linkedin
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='http://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='js/bootstrap.min.js')
+    script(src='js/slick.min.js')
+    script.
+      /***************** Slick Carousel ******************/
+      $(document).ready(function() {
+      $('.filtering').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: true,
+      dots: true,
+      swipeToSlide: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      responsive: [{
+      breakpoint: 1024,
+      settings: {
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      infinite: true,
+      dots: true
+      }
+      }, {
+      breakpoint: 600,
+      settings: {
+      slidesToShow: 2,
+      slidesToScroll: 2
+      }
+      }, {
+      breakpoint: 480,
+      settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1
+      }
+      }]
+      });
+      });
+      /***************** Media Queries ******************/
+      var mq1 = window.matchMedia( "(max-width: 480px)");
+      var mq2 = window.matchMedia( "(max-width: 768px)");
+      var mq3 = window.matchMedia( "(max-width: 992px)");
+      var mq4 = window.matchMedia( "(max-width: 1200px)");
+      /***************** Hide Navbar-toggle on click ******************/
+      /* $(document).ready(function () {
+      $(document).click(function (event) {
+      var clickover = $(event.target);
+      var _opened = $(".navbar-collapse").hasClass("navbar-collapse in");
+      if (_opened === true && ((!clickover.hasClass("navbar-toggle")) || (clickover.is(".navbar-nav li a")) )) {
+      $("button.navbar-toggle").click();
+      }
+      });
+      });
+      */
+      $(document).ready(function () {
+      $(document).click(function (event) {
+      var clickover = $(event.target);
+      var _opened = $(".navbar-collapse").hasClass("in");
+      var navlia = $(".navbar-nav li a");
+      if (_opened === true && !(clickover.hasClass("navbar-toggle")) ) {
+      $("button.navbar-toggle").click();
+      }
+      });
+      });
+      /***************** Smooth Scrolling ******************/
+      $('a[href*=\\\#]:not([href=\\#])').click(function() {
+      if (location.pathname.replace("/^\\//", '') === this.pathname.replace("/^\//", '') && location.hostname === this.hostname) {
+      var target = $(this.hash);
+      var _opened = $(".navbar-collapse").hasClass("in");
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+      $('html,body').animate({
+      scrollTop: target.offset().top - 40
+      }, 2000);
+      if(_opened === true) {
+      $("button.navbar-toggle").click();
+      }
+      return false;
+      }
+      }
+      });

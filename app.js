@@ -7,7 +7,7 @@ var path = require('path');
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 var monk = require('monk');	
-var db = monk('localhost:27017/whatssap');
+var db = monk('localhost:27017/dotut');
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
 //var flash = require('connect-flash');
@@ -26,7 +26,7 @@ require('./models/usuario');
 require('./models/passport')(passport)
 
 //Connect Mongoose
-mongoose.connect('mongodb://localhost:27017/whatssap');
+mongoose.connect('mongodb://localhost:27017/dotut');
 
 app.use(function(req, res, next){
 	req.db = db;
@@ -47,6 +47,11 @@ var home = require('./routes/inicio');
 var demo = require('./routes/index');
 var register = require('./routes/register');
 var chat = require('./routes/chat');
+var save = require('./routes/save');
+
+var panel = require('./routes/panel');
+
+var api = require('./routes/api');
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -76,11 +81,15 @@ app.use('/', home);
 app.use('/demo', demo);
 app.use('/register', register);
 app.use('/chat', verify, chat);
+app.use('/save', save);
+
+app.use('/panel', verify, panel);
+app.use('/api', api);
 
 
 //Metodo de login en post
 app.post('/login', passport.authenticate('local', {
-	successRedirect: '/chat',
+	successRedirect: '/panel',
 	failureRedirect: '/'
 }))
 
@@ -159,7 +168,7 @@ io.on('connection', function(client, username){
 ////////////////////////////////////////
 
 
-server.listen('80', function(){
+server.listen('3535', function(){
 	console.log('el servidor esta corriendo');
 });
 

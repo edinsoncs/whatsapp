@@ -1,0 +1,119 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    title Dotut - Admin
+    
+    link(rel='shortcut icon', type='image/x-icon', href='images/favicon.ico')
+   
+    link(href='/stylesheet/entypo.css', rel='stylesheet')
+   
+    link(href='/stylesheet/font-awesome.min.css', rel='stylesheet')
+   
+    link(href='/stylesheet/bootstrap.min.css', rel='stylesheet')
+    
+    link(href='/stylesheet/mouldifi-core.css', rel='stylesheet')
+
+    link(href='/stylesheet/mouldifi-forms.css', rel='stylesheet')
+
+    link(href='/stylesheet/new-core.css', rel='stylesheet')
+
+    link(href='/stylesheet/plugins/datatables/jquery.dataTables.css', rel='stylesheet')
+
+    link(href='/javascript/plugins/datatables/extensions/Buttons/css/buttons.dataTables.css', rel='stylesheet')
+
+  body
+    
+    .page-container
+      
+      .page-sidebar
+        header.site-header
+          .site-logo
+            a(href='/panel')
+              img(src='../img/logo.png', alt='Mouldifi', title='Mouldifi')
+          .sidebar-collapse.hidden-xs
+            a.sidebar-collapse-icon(href='#')
+              i.icon-menu
+          .sidebar-mobile-menu.visible-xs
+            a.mobile-menu-icon(data-target='#side-nav', data-toggle='collapse', href='#')
+              i.icon-menu
+       
+        include inc/menuadmin
+     
+      .main-container
+        .main-content
+          .row
+            
+            div.myFn
+              .col-lg-12
+                .panel-heading.clearfix
+                  h3.panel-title Donaciones
+                 
+                .panel-body
+                  .table-responsive
+                    table.table.table-striped.table-bordered.table-hover.dataTables-example
+                      thead
+                        tr
+                          th Foto
+                          th Nombre
+                          th Red Social
+                          th Fecha
+                          th Donacion
+                      tbody
+                        tr.gradeX
+                          td 
+                           img(src="/images/stella-johnson.png", width="50px")
+                          td Carla
+                          td Facebook
+                          td 20
+                          td 1
+                       
+              
+
+
+    script(src='/javascript/jquery.min.js')
+    script(src='/javascript/bootstrap.min.js')
+    script(src='/javascript/plugins/metismenu/jquery.metisMenu.js')
+    script(src='/javascript/plugins/blockui-master/jquery-ui.js')
+    script(src='/javascript/plugins/blockui-master/jquery.blockUI.js')
+    script(src='/javascript/functions.js')
+    script(src='/javascript/plugins/datatables/jquery.dataTables.min.js')
+    script(src='/javascript/plugins/datatables/dataTables.bootstrap.min.js')
+    script(src='/javascript/plugins/datatables/extensions/Buttons/js/dataTables.buttons.min.js')
+    script(src='/javascript/plugins/datatables/jszip.min.js')
+    script(src='/javascript/plugins/datatables/pdfmake.min.js')
+    script(src='/javascript/plugins/datatables/vfs_fonts.js')
+    script(src='/javascript/plugins/datatables/extensions/Buttons/js/buttons.html5.js')
+    script(src='/javascript/plugins/datatables/extensions/Buttons/js/buttons.colVis.js')
+    script.
+      $(document).ready(function () {
+      $('.dataTables-example').DataTable({
+      dom: '<"html5buttons" B>lTfgitp',
+      buttons: [
+      {
+      extend: 'copyHtml5',
+      exportOptions: {
+      columns: [ 0, ':visible' ]
+      }
+      },
+      {
+      extend: 'excelHtml5',
+      exportOptions: {
+      columns: ':visible'
+      }
+      },
+      {
+      extend: 'pdfHtml5',
+      exportOptions: {
+      columns: [ 0, 1, 2, 3, 4 ]
+      }
+      },
+      'colvis'
+      ]
+      });
+      });
+

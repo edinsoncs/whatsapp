@@ -1,0 +1,189 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    title Dotut
+    // Bootstrap
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+    link(href='css/style.css', rel='stylesheet')
+    link(rel='stylesheet', href='css/device-mockups/device-mockups.min.css')
+    link(href='css/slick.css', rel='stylesheet')
+    // Fonts
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Ubuntu', rel='stylesheet')
+
+  body
+
+    
+
+    - if (messages.info)
+      #info.modal.fade(role='dialog')
+       .modal-dialog
+        // Modal content
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal') ×
+            h2.textAlignC Surgio un problema
+          .modal-body
+            h4(style="color:black;")= messages.info
+
+    - if (messages.su)
+      #success.modal.fade(role='dialog')
+       .modal-dialog
+        // Modal content
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal') ×
+            h2.textAlignC Felicidades
+          .modal-body
+            h4(style="color:black;")= messages.su
+
+    nav.navbar.navbar-default.navbar-fixed-top.miNav
+      .container
+        .navbar-header
+          button#nav-toggle.ui-navbar-toggle.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          .logo
+            a(href='index.html#pagetop')
+              img(src='img/logo.png', alt='', height='35px')
+          // <h3>Dotut</h3>
+        .collapse.navbar-collapse.navbar-1
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='index.html#video') Video
+            li
+              a(href='index.html#about') About
+            li
+              a(href='index.html#features') Features
+            li
+              a(href='index.html#screens') Screens
+            li
+              a(href='index.html#getit') Conseguirlo
+      .btn-login
+        a(href='/access') Login
+    section.login
+      .container
+        form.form-signin(action="/login", method="post")
+          h2.form-signin-heading Login
+          label.sr-only(for='inputEmail') Email
+          input#inputEmail.form-control(type='email', placeholder='Email', required='', autofocus='', name="email")
+          label.sr-only(for='inputPassword') Contraseña
+          input#inputPassword.form-control(type='password', placeholder='Contraseña', required='', name="password")
+          .checkbox
+           
+          button.btn-signin(type='submit') Ingresar
+          br
+          p
+            | ¿No tienes una cuenta? 
+            a(href='', data-toggle='modal', data-target='#registro') Crear cuenta
+            | .
+      // /container
+    // Modal
+    #registro.modal.fade(role='dialog')
+      .modal-dialog
+        // Modal content
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal') ×
+            h2.textAlignC Registro
+          .modal-body
+            form(action='/register', method="post")
+              .form-group.row
+                label.col-md-3.col-form-label(for='name-input') Nombre (Aso, Ong, Etc)
+                .col-md-9
+                  input#name-input.form-control(type='text', placeholder='Email', name="name")
+
+              .form-group.row
+                label.col-md-3.col-form-label(for='email-input') Email
+                .col-md-9
+                  input#email-input.form-control(type='email', placeholder='Email', name="email")
+              .form-group.row
+                label.col-md-3.col-form-label(for='password-input') Contraseña
+                .col-md-9
+                  input#password-input.form-control(type='password', placeholder='Contraseña', name="passworda")
+              .form-group.row
+                label.col-md-3.col-form-label(for='repeatpass-input') Repetir contraseña
+                .col-md-9
+                  input#repeatpass-input.form-control(type='password', placeholder='Repetir contraseña', name="passwordb")
+              .form-group.row.textAlignC
+                button.btn-signin(type='submit') Registrarme
+    // Footer
+    footer
+      .container.text-center
+        .col-md-4
+          ul
+            li
+              a(href='login.html') Login
+            li
+              a(href='#') Contacto
+            li
+              a(href='#') Sponsors
+            li
+              a(href='#') Privacidad
+            li
+              a(href='#') Términos
+        .col-md-4.containerUno
+          .containerCopyright
+            p Copyright © Dotut 2017
+            p Todos los derechos reservados.
+        .col-md-4
+          .containerRedes.verticalAlign
+            .social-icons.text-center
+              .icon.facebook
+                a(href='#', target='_blank')
+                  i.fa.fa-facebook
+              .icon.twitter
+                a(href='#', target='_blank')
+                  i.fa.fa-twitter
+              .icon.linkedin
+                a(href='#', target='_blank')
+                  i.fa.fa-linkedin
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='http://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='js/bootstrap.min.js')
+    script(src='js/slick.min.js')
+    script.
+      /***************** Slick Carousel ******************/
+      $(document).ready(function() {
+      $('#info').modal('show');
+      $('#success').modal('show');
+      $('.filtering').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: true,
+      dots: true,
+      swipeToSlide: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      responsive: [{
+      breakpoint: 1024,
+      settings: {
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      infinite: true,
+      dots: true
+      }
+      }, {
+      breakpoint: 600,
+      settings: {
+      slidesToShow: 2,
+      slidesToScroll: 2
+      }
+      }, {
+      breakpoint: 480,
+      settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1
+      }
+      }]
+      });
+      });
+      

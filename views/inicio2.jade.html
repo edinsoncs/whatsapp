@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title #{title}
+    link(rel="stylesheet", href="../css/normalize.css")
+    link(rel="stylesheet", href="../css/app.css")
+    script(src="https://code.jquery.com/jquery-1.10.2.js")
+    script(src="http://timeago.yarp.com/jquery.timeago.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="../js/web.js")
+    script(src="../js/app.js")
+    script(src="../js/home.js")
+    
+  body
+    div.bgPrimary
+    main
+      section.panelAccess
+        header.panelAccess__Header
+          h2.title
+            | Ingresar Whatssap
+          if messages
+            p.success
+              | #{messages.user}
+
+        form.formLogin(action="/login", method="post")
+          fieldset.fieldset
+            input(type="text", name="username", placeholder="Nickname")
+          fieldset.fieldset
+            input(type="password", name="password", placeholder="Password")
+          fieldset.fieldset
+            input(type="submit", value="Ingresar")
+        form.formRegister(action="/register", method="post")
+          fieldset.fieldset
+            input(type="text", name="username", placeholder="Nickname", required, title="Completa con un nick o nombre")
+          fieldset.fieldset
+            input(type="password", name="password", placeholder="Password", required)
+          fieldset.fieldset
+            input(type="password", name="otherpassword", placeholder="Confirmar Password", required)
+          //fieldset.fieldset
+            input(type="file", name="avatar", id="avatar", required)
+            label(for="avatar", class="isAvatar")
+              | Selecciona tu avatar
+          fieldset.fieldset
+            input(type="submit", value="Crear Cuenta")
+        div.containerLinks
+          a.link.jsNewAccount(href="#")
+            | Crear Cuenta
+          a.link.jsAccessAccount(href="#")
+            | Ya tienes una cuenta?
+      
+        
+
+      
+  

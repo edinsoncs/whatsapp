@@ -1,0 +1,319 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    title Dotut - Admin
+    
+    link(rel='shortcut icon', type='image/x-icon', href='images/favicon.ico')
+   
+    link(href='/stylesheet/entypo.css', rel='stylesheet')
+   
+    link(href='/stylesheet/font-awesome.min.css', rel='stylesheet')
+   
+    link(href='/stylesheet/bootstrap.min.css', rel='stylesheet')
+    
+    link(href='/stylesheet/mouldifi-core.css', rel='stylesheet')
+
+    link(href='/stylesheet/mouldifi-forms.css', rel='stylesheet')
+
+    link(href='/stylesheet/new-core.css', rel='stylesheet')
+
+  body
+    
+    .page-container
+      
+      .page-sidebar
+        header.site-header
+          .site-logo
+            a(href='/panel')
+              img(src='../img/logo.png', alt='Mouldifi', title='Mouldifi')
+          .sidebar-collapse.hidden-xs
+            a.sidebar-collapse-icon(href='#')
+              i.icon-menu
+          .sidebar-mobile-menu.visible-xs
+            a.mobile-menu-icon(data-target='#side-nav', data-toggle='collapse', href='#')
+              i.icon-menu
+       
+        include inc/menuadmin
+     
+      .main-container
+        //.main-header.row
+          .col-sm-6.col-xs-7
+            
+          .col-sm-6.col-xs-5
+            .pull-right
+              ul.user-info.pull-left
+                li.notifications.dropdown
+                  a.dropdown-toggle(data-close-others='true', data-hover='dropdown', data-toggle='dropdown', href='#')
+                    i.icon-attention
+                    span.badge.badge-info 6
+                  ul.dropdown-menu.pull-right
+                    li.first
+                      .small
+                        a.pull-right.danger(href='#') Mark all Read
+                        |  You have 
+                        strong 3
+                        |  new notifications.
+                    li
+                      ul.dropdown-list
+                        li.unread.notification-success
+                          a(href='#')
+                            i.icon-user-add.pull-right
+                            span.block-line.strong New user registered
+                            span.block-line.small 30 seconds ago
+                        li.unread.notification-secondary
+                          a(href='#')
+                            i.icon-heart.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                        li.unread.notification-primary
+                          a(href='#')
+                            i.icon-user.pull-right
+                            span.block-line.strong Privacy settings have been changed
+                            span.block-line.small 2 hours ago
+                        li.notification-danger
+                          a(href='#')
+                            i.icon-cancel-circled.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                        li.notification-info
+                          a(href='#')
+                            i.icon-info.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                        li.notification-warning
+                          a(href='#')
+                            i.icon-rss.pull-right
+                            span.block-line.strong Someone special liked this
+                            span.block-line.small 60 seconds ago
+                    li.external-last
+                      a.danger(href='#') View all notifications
+                // /notifications
+                // Messages
+                li.notifications.dropdown
+                  a.dropdown-toggle(data-close-others='true', data-hover='dropdown', data-toggle='dropdown', href='#')
+                    i.icon-mail
+                    span.badge.badge-secondary 12
+                  ul.dropdown-menu.pull-right
+                    li.first
+                      .dropdown-content-header
+                        i.fa.fa-pencil-square-o.pull-right
+                        |  Messages
+                    li
+                      ul.media-list
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/domnic-brown.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Domnic Brown
+                              span.media-annotation.pull-right Tue
+                            span.text-muted Your product sounds interesting I would love to check this ne...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/john-smith.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold John Smith
+                              span.media-annotation.pull-right 12:30
+                            span.text-muted Thank you for posting such a wonderful content. The writing was outstanding...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/stella-johnson.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Stella Johnson
+                              span.media-annotation.pull-right 2 days ago
+                            span.text-muted Thank you for trusting us to be your source for top quality sporting goods...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/alex-dolgove.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Alex Dolgove
+                              span.media-annotation.pull-right 10:45
+                            span.text-muted
+                              | After our Friday meeting I was thinking about our business relationship and how fortunate...
+                        li.media
+                          .media-left
+                            img.img-circle.img-sm(alt='', src='images/domnic-brown.png')
+                          .media-body
+                            a.media-heading(href='#')
+                              span.text-semibold Domnic Brown
+                              span.media-annotation.pull-right 4:00
+                            span.text-muted
+                              | I would like to take this opportunity to thank you for your cooperation in recently completing...
+                    li.external-last
+                      a.danger(href='#') All Messages
+              
+        .main-content
+          .row
+            
+            div.myFn
+              .col-lg-8
+                  .panel.panel-default
+                    .panel-heading.clearfix
+                      h3.panel-title Mi Fundación: 
+                       b #{use.fn[0].name}
+                    .panel-body
+                      .panel-headerLogo(style="background: url('/files/#{use.fn[0].bg}');background-size:cover;text-align:center;padding:5em 2em;")
+                        img(src="/files/#{use.fn[0].logo}", alt="", style="border: 2px solid white;")
+
+                      .panel-details
+                        div.header
+                          h2.btn.btn-default Información Basica
+                        div.row
+                          div.col-lg-6
+                            article.details
+                              h2 Nombre
+                              h4 #{use.fn[0].name}
+                          div.col-lg-6
+                            article.details
+                              h2 Tipo
+                              h4 #{use.fn[0].tipo}
+
+                          div.col-lg-6
+                            article.details
+                              h2 Pais
+                              h4 #{use.fn[0].pais}
+
+                          div.col-lg-6
+                            article.details
+                              h2 Pais
+                              h4 #{use.fn[0].ciudad}
+
+                      .panel-details
+                        div.header
+                           h2.btn.btn-default Detalles
+                        div.row
+                          div.col-lg-6
+                            article.details
+                              h2 Categoria
+                              h4 #{use.fn[0].categoria}
+                          div.col-lg-6
+                            article.details
+                              h2 Video
+                              h4 
+                                a(href="#{use.fn[0].video}")
+                                  | Ver Video
+
+                      .panel-details
+                        div.header
+                           h2.btn.btn-default Nosotros
+                        div.row
+                          div.col-lg-12
+                            article.details
+                              h2 Quienes somos
+                              h4 #{use.fn[0].somos}
+                          div.col-lg-12
+                            article.details
+                              h2 Que hacemos
+                              h4 #{use.fn[0].hacemos}
+
+                      .panel-details
+                        div.header
+                           h2.btn.btn-default Contacto
+                        div.row
+                          div.col-lg-6
+                            article.details
+                              h2 Telefono
+                              h4 #{use.fn[0].phone}
+                          div.col-lg-6
+                            article.details
+                              h2 Email
+                              h4 #{use.fn[0].email}
+
+                          div.col-lg-6
+                            article.details
+                              h2 Web
+                              h4 
+                                a(href="#{use.fn[0].web}")
+                                  | Ver Url
+          
+          footer.footer-main
+            | © 2017 
+            strong Dotut
+        
+     
+
+
+    script(src='/javascript/jquery.min.js')
+    script(src='/javascript/bootstrap.min.js')
+    script(src='/javascript/plugins/metismenu/jquery.metisMenu.js')
+    script(src='/javascript/plugins/blockui-master/jquery-ui.js')
+    script(src='/javascript/plugins/blockui-master/jquery.blockUI.js')
+   
+    script(src='/javascript/jquery.validate.min.js')
+    script(src='/javascript/plugins/wizard/jquery.bootstrap.wizard.min.js')
+    script.
+      $(document).ready(function () {
+      // Form Wizard
+      if ($.isFunction($.fn.bootstrapWizard))
+      {
+      $('#rootwizard').bootstrapWizard({
+      tabClass: 'wizard-steps',
+      onTabShow: function ($tab, $navigation, index)
+      {
+      $tab.prevAll().addClass('completed');
+      $tab.nextAll().removeClass('completed');
+      $tab.removeClass('completed');
+      }
+      });
+      $(".validate-form-wizard").each(function (i, formwizard)
+      {
+      var $this = $(formwizard);
+      var $progress = $this.find(".steps-progress div");
+      var $validator = $this.validate({
+      rules: {
+      username: {
+      required: true,
+      minlength: 3
+      },
+      password: {
+      required: true,
+      minlength: 3
+      },
+      confirmpassword: {
+      required: true,
+      minlength: 3
+      },
+      email: {
+      required: true,
+      email: true,
+      minlength: 3,
+      }
+      }
+      });
+      // Validation
+      var checkValidaion = function (tab, navigation, index)
+      {
+      if ($this.hasClass('validate'))
+      {
+      var $valid = $this.valid();
+      if (!$valid) {
+      $validator.focusInvalid();
+      return false;
+      }
+      }
+      return true;
+      };
+      $this.bootstrapWizard({
+      tabClass: 'wizard-steps',
+      onNext: checkValidaion,
+      onTabClick: checkValidaion,
+      onTabShow: function ($tab, $navigation, index)
+      {
+      $tab.removeClass('completed');
+      $tab.prevAll().addClass('completed');
+      $tab.nextAll().removeClass('completed');
+      }
+      });
+      });
+      }
+      });
+    script(src='/javascript/functions.js')
+

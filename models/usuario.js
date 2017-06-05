@@ -2,11 +2,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var usuario = new Schema({
-	'username': String,
+	'name': String,
+	'email': String,
 	'password': String,
 	'avatar': String,
 	'idsocket': String,
-	'status': String
+	'status': String,
+	'fn':  Array
 }, {
 	collection: 'usuarios'
 });
